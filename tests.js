@@ -12,10 +12,13 @@ for (let i = 1; i <= repetitions; i++) {
 const end = process.hrtime.bigint();
 
 console.log(`
-Test performed on Node ${process.version}
-running on ${os.arch()} with ${os.type()} ${os.release()} OS
-with a CPU ${os.cpus()[0].model}
-
-function called ${repetitions} times
-time elapsed: ${end - start} nanoseconds
+**
+** Test performed on Node ${process.version}
+** running on ${os.arch()} with ${os.type()} ${os.release()} OS
+** with a CPU ${os.cpus()[0].model}
+** 
+** function called ${repetitions} times
+**
+** time elapsed: ${end - start} nanoseconds
+**
 `);

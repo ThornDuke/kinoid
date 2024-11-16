@@ -7,6 +7,10 @@
  *
  * La prima parte riflette lo stato dell'intero Universo, che non è mai uguale a se stesso; la seconda parte è costituita da una singolarità che riflette la coscienza interiore del programma; la terza parte riflette lo stato involontario della macchina; la quarta parte rappresenta la pazzia che è dei poeti, dei bambini, degli dei e degli amanti.
  *
+ * NO DEPENDENCIES
+ *
+ * LE ID NON SONO PASSWORD !!!
+ *
  * INSTALLAZIONE
  * USO
  * ALTRO
