@@ -19,6 +19,6 @@ console.log(`
 ** 
 ** function called ${repetitions} times
 **
-** time elapsed: ${end - start} nanoseconds
+** time elapsed: ${Number(end - start) / 1000000} milliseconds
 **
 `);
