@@ -1,7 +1,7 @@
 const os = require("os");
-const idGenerator = require("./index");
+const kinoid = require("./index");
 
-const id = idGenerator();
+const id = kinoid();
 
 const repetitions = 10000;
 

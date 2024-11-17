@@ -1,20 +1,27 @@
 //
 // KINOID
 //
-// Generates a 24-character string of lowercase letters and numbers.
-// The algorithm generates each time a different string than all those
-// generated previously.
+// Generates a 24-character string made up of lowercase letters and numbers.
+// The algorithm generates each time a string different from all those
+// previously generated.
+//
+// Thorn Duke 2024
 //
 
 module.exports = module.exports.default = function () {
   const pool = createPool();
   const pidStr = typeof process !== "undefined" && process.pid ? process.pid.toString(36) : "";
   let singularity = 0;
+  let currTimeStamp = "";
+  let lastTimeStamp = "";
+  let filler = "";
 
   /**
-   * Generates a random integer number between 0 (inclusive) and _max_ (not inclusive)
+   * Generates a random integer number between 0 (inclusive) and _max_
+   * (not inclusive)
    * @param {number} max limit value
-   * @returns {number} a random integer number between 0 (inclusive) and _max_ (not inclusive)
+   * @returns {number} a random integer number between 0 (inclusive)
+   * and _max_ (not inclusive)
    */
   function randomValue(max = 100000) {
     return Math.floor(Math.random() * max);
@@ -41,7 +48,7 @@ module.exports = module.exports.default = function () {
   }
 
   /**
-   * Generates a random string of _length_ length
+   * Generates a random string made up of _length_ characters
    * @param {number} length the length of the string
    * @returns {string} a random string
    */
@@ -71,15 +78,24 @@ module.exports = module.exports.default = function () {
    * @returns {string} a base-36 number
    */
   function singularityStr() {
-    singularity++;
     return singularity.toString(36);
   }
 
   /**
    * Creates a string 24 characters long. The string is different from
    * all those created previously or at the same time.
+   * @returns {string} a unique ID
    */
   return function () {
-    return `${timeStr()}${singularityStr()}${pidStr}`.padEnd(24, randStr(18));
+    currTimeStamp = timeStr();
+    if (currTimeStamp == lastTimeStamp) {
+      singularity++;
+    } else {
+      singularity = 0;
+      lastTimeStamp = currTimeStamp;
+    }
+    let singularityStamp = singularityStr();
+    filler = randStr(14);
+    return `${currTimeStamp}${singularityStamp}${pidStr}`.padEnd(24, filler);
   };
 };

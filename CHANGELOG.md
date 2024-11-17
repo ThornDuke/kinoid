@@ -6,6 +6,19 @@
 - filename {section}: description
 -->
 
+## [Unreleased]
+
+### Changed
+
+- index.js: the `singularity` is resetted every time the `timeStr` changes
+- tests.js: renaming
+
+### Fixed
+
+- index.js: better documentation
+- package.json: typo
+- README.md: better documentation
+
 ## [1.1.0]
 
 The library is fully working as an NPM package

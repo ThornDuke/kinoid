@@ -7,7 +7,9 @@
 -->
 
 [![NPM Version](https://img.shields.io/npm/v/kinoid?style=plastic&logo=npm&label=version)](https://www.npmjs.com/package/kinoid)
-[![NPM Downloads](https://img.shields.io/npm/d18m/kinoid?style=plastic&logo=npm)](https://www.npmjs.com/package/kinoid)
+
+<!-- [![NPM Downloads](https://img.shields.io/npm/d18m/kinoid?style=plastic&logo=npm)](https://www.npmjs.com/package/kinoid) -->
+
 [![NPM License](https://img.shields.io/npm/l/kinoid?style=plastic&logo=MIT)](https://www.gnu.org/licenses/gpl-3.0.html)
 ![Node Current](https://img.shields.io/node/v/kinoid?style=plastic&logo=nodedotjs&logoColor=white&logoSize=auto)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/kinoid?style=plastic&logo=webpack)
@@ -26,7 +28,7 @@ generated _simultaneously_ in any other process running on the same machine.
 
 ### Warning
 
-**IDs are not passwords**. Kinoid ensures that each id generated is unique, no one has ever been
+**IDs are not passwords**. Kinoid ensures that each generated id is unique, no one has ever been
 created the same and will never happen in the future. Kinoid is not intended to create
 cryptographically secure strings.
 
@@ -51,25 +53,20 @@ npm install kinoid
 import kinoid from "kinoid";
 const id = kinoid();
 
-for (let i = 1; i <= 3; i++) {
-  console.log(id());
-}
+console.log(id());
 // m3le044n22hxzzi0bwkz7nxu
-// m3le044o32hx6i23g0kglqm8
-// m3le044o42hx92be609zni1y
 ```
 
 ### `require`
 
 ```javascript
-const kinoid = require("kinoid");
-const id = kinoid();
+const id = require("kinoid")();
 
 const newBook = {
-  id: id(),
   title: "Love at the time of the inquisition",
   author: "John White",
-  publisher: "Cubes",
+  publisher: "Hypercubes",
+  id: id(),
 };
 
 db.add(newBook);
