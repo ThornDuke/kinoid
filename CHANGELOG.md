@@ -6,7 +6,9 @@
 - filename {section}: description
 -->
 
-## [Unreleased]
+## [1.1.0]
+
+The library is fully working as an NPM package
 
 ### Added
 

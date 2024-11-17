@@ -38,7 +38,5 @@
   },
   "preferGlobal": true,
   "main": "index.js",
-  "scripts": {},
-  "dependencies": {},
-  "devDependencies": {}
+  "scripts": {}
 }
