@@ -6,7 +6,7 @@
 - filename {section}: description
 -->
 
-## [Unreleased]
+## [1.1.1] - 2024-11-18
 
 ### Changed
 
@@ -19,7 +19,7 @@
 - package.json: typo
 - README.md: better documentation
 
-## [1.1.0]
+## [1.1.0] - 2024-11-17
 
 The library is fully working as an NPM package
 
