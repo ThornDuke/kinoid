@@ -15,6 +15,32 @@
 
 A simple, configurable library for generating rock-solid passwords.
 
+<!--
+
+Genera un ID univoco.
+
+L'ID è una stringa lunga 24 caratteri composta da numeri e dai 26 caratteri minuscoli
+  dell'alfabeto inglese; può essere considerato come un numero in base 36 composto da 24 cifre.
+
+L'ID generato è univoco perchè, qualunque sia il numero di ID generati, nessun ID sarà mai uguale
+  a uno generato precedentemente nè a nessun ID che sarà generato successivamente e neanche a nessun
+  ID generato contemporaneamente in un qualunque altro processo che giri sulla stessa macchina.
+
+La prima parte riflette lo stato dell'intero Universo, che non è mai uguale a se stesso; la
+  seconda parte è costituita da una singolarità che riflette la coscienza interiore del programma;
+  la terza parte riflette lo stato involontario della macchina; la quarta parte rappresenta la
+  pazzia che è dei poeti, dei bambini, degli dei e degli amanti.
+
+NO DEPENDENCIES
+
+LE ID NON SONO PASSWORD !!!
+
+INSTALLAZIONE
+USO
+ALTRO
+
+-->
+
 ## Overview
 
 **crypto-pwd-generator** allows you to generate password lists or single passwords of any length and

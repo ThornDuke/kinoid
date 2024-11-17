@@ -1,29 +1,33 @@
-/**
- * Genera un ID univoco.
- *
- * L'ID è una stringa lunga 24 caratteri composta da numeri e dai 26 caratteri minuscoli dell'alfabeto inglese; può essere considerato come un numero in base 36 composto da 24 cifre.
- *
- * L'ID generato è univoco perchè, qualunque sia il numero di ID generati, nessun ID sarà mai uguale a uno generato precedentemente nè a nessun ID che sarà generato successivamente e neanche a nessun ID generato contemporaneamente in un qualunque altro processo che giri sulla stessa macchina.
- *
- * La prima parte riflette lo stato dell'intero Universo, che non è mai uguale a se stesso; la seconda parte è costituita da una singolarità che riflette la coscienza interiore del programma; la terza parte riflette lo stato involontario della macchina; la quarta parte rappresenta la pazzia che è dei poeti, dei bambini, degli dei e degli amanti.
- *
- * NO DEPENDENCIES
- *
- * LE ID NON SONO PASSWORD !!!
- *
- * INSTALLAZIONE
- * USO
- * ALTRO
- */
+//
+// KINOID
+//
+// Generates a 24-character string of lowercase letters and numbers.
+// The algorithm generates each time a different string than all those
+// generated previously.
+//
+
 module.exports = module.exports.default = function () {
   const pool = createPool();
   const pidStr = typeof process !== "undefined" && process.pid ? process.pid.toString(36) : "";
   let singularity = 0;
 
+  /**
+   * Generates a random integer number between 0 (inclusive) and _max_ (not inclusive)
+   * @param {number} max limit value
+   * @returns {number} a random integer number between 0 (inclusive) and _max_ (not inclusive)
+   */
   function randomValue(max = 100000) {
     return Math.floor(Math.random() * max);
   }
 
+  /**
+   * Generates a 36-character long string made up of the numbers from 0
+   * to 9 and all the lowercase characters of the English alphabet. The
+   * characters are randomly ordered.
+   * Kinoid uses this string to generate the random characters that will
+   * be used to construct the IDs.
+   * @returns {string} A string with randomly ordered characters
+   */
   function createPool() {
     return "abcdefghijklmnopqrstuvwxyz0123456789"
       .split("")
@@ -36,6 +40,11 @@ module.exports = module.exports.default = function () {
       .join("");
   }
 
+  /**
+   * Generates a random string of _length_ length
+   * @param {number} length the length of the string
+   * @returns {string} a random string
+   */
   function randStr(length) {
     let result = "";
     for (let i = 1; i <= length; i++) {
@@ -44,15 +53,32 @@ module.exports = module.exports.default = function () {
     return result;
   }
 
+  /**
+   * Transforms the system date and time into a base-36 number that
+   * is returned as a string
+   * @returns {string}
+   */
   function timeStr() {
     return Date.now().toString(36);
   }
 
+  /**
+   * The 'singularity' is an integer that is incremented every time an
+   * ID is created, and which will become part of the structure of the
+   * ID itself. This function takes care of incrementing the value of
+   * the 'singularity' and returning it as a base 36 number expressed
+   * as a string value
+   * @returns {string} a base-36 number
+   */
   function singularityStr() {
     singularity++;
     return singularity.toString(36);
   }
 
+  /**
+   * Creates a string 24 characters long. The string is different from
+   * all those created previously or at the same time.
+   */
   return function () {
     return `${timeStr()}${singularityStr()}${pidStr}`.padEnd(24, randStr(18));
   };
