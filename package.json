@@ -1,8 +1,9 @@
 {
   "name": "kinoid",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Unique ID Generator",
-  "homepage": "https://github.com/ThornDuke/kinoid",
+  "author": "Thorn Duke",
+  "license": "MIT",
   "keywords": [
     "unique id",
     "uniqid",
@@ -16,19 +17,28 @@
     "node",
     "generator"
   ],
-  "bugs": {
-    "url": "https://github.com/ThornDuke/kinoid/issues"
-  },
+  "homepage": "https://github.com/ThornDuke/kinoid",
   "repository": {
     "type": "git",
     "url": "https://github.com/ThornDuke/kinoid.git"
   },
+  "bugs": {
+    "url": "https://github.com/ThornDuke/kinoid/issues"
+  },
+  "engines": {
+    "node": ">=8"
+  },
   "files": [
-    "index.js"
+    "index.js",
+    "LICENSE",
+    "README.md"
   ],
-  "license": "MIT",
-  "author": "Thorn Duke",
+  "bin": {
+    "kinoid": "index.js"
+  },
+  "preferGlobal": true,
   "main": "index.js",
+  "scripts": {},
   "dependencies": {},
   "devDependencies": {}
 }

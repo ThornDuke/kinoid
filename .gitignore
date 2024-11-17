@@ -1,1 +1,28 @@
-todo.md
+# OS
+.DS_Store
+
+# This project
+package-lock.json
+project-notes.md
+
+# environment files
+.npmignore
+.nvmrc
+.prettierrc
+
+# VSCode files
+.vscode
+
+# Dependency directories
+node_modules
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# End of file
