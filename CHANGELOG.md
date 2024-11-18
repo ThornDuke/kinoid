@@ -6,6 +6,16 @@
 - filename {section}: description
 -->
 
+## [Unreleased]
+
+### Changed
+
+- index.js: more elegance in the code
+
+### Added
+
+- README.md: one more badge
+
 ## [1.1.1] - 2024-11-18
 
 ### Changed

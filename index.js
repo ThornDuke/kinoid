@@ -8,13 +8,13 @@
 // Thorn Duke 2024
 //
 
+"use strict";
+
 module.exports = module.exports.default = function () {
   const pool = createPool();
-  const pidStr = typeof process !== "undefined" && process.pid ? process.pid.toString(36) : "";
   let singularity = 0;
-  let currTimeStamp = "";
   let lastTimeStamp = "";
-  let filler = "";
+  let currTimeStamp = "";
 
   /**
    * Generates a random integer number between 0 (inclusive) and _max_
@@ -66,36 +66,43 @@ module.exports = module.exports.default = function () {
    * @returns {string}
    */
   function timeStr() {
-    return Date.now().toString(36);
-  }
-
-  /**
-   * The 'singularity' is an integer that is incremented every time an
-   * ID is created, and which will become part of the structure of the
-   * ID itself. This function takes care of incrementing the value of
-   * the 'singularity' and returning it as a base 36 number expressed
-   * as a string value
-   * @returns {string} a base-36 number
-   */
-  function singularityStr() {
-    return singularity.toString(36);
-  }
-
-  /**
-   * Creates a string 24 characters long. The string is different from
-   * all those created previously or at the same time.
-   * @returns {string} a unique ID
-   */
-  return function () {
-    currTimeStamp = timeStr();
+    currTimeStamp = Date.now();
     if (currTimeStamp == lastTimeStamp) {
       singularity++;
     } else {
       singularity = 0;
       lastTimeStamp = currTimeStamp;
     }
-    let singularityStamp = singularityStr();
-    filler = randStr(14);
-    return `${currTimeStamp}${singularityStamp}${pidStr}`.padEnd(24, filler);
+    return currTimeStamp.toString().padStart(15, 0);
+  }
+
+  function singularityStr() {
+    return singularity.toString().padStart(12, 0);
+  }
+
+  function pidStr() {
+    const pid = typeof process !== "undefined" && process.pid ? process.pid : 0;
+    return pid.toString().padStart(7, 0);
+  }
+
+  function biToDec(value) {
+    return [...value.toString()].reduce((r, v) => r * BigInt(36) + BigInt(parseInt(v, 36)), 0n);
+  }
+
+  const publicAPI = {
+    newId: function () {
+      return BigInt(`1${timeStr()}${singularityStr()}${pidStr()}`).toString(36);
+    },
+    decodeId: function (id) {
+      const idStr = biToDec(id).toString();
+      return {
+        id,
+        date: new Date(Number(idStr.slice(1, 16))),
+        step: Number(idStr.slice(16, 28)),
+        pid: Number(idStr.slice(28)),
+      };
+    },
   };
+
+  return publicAPI;
 };

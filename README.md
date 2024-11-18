@@ -7,9 +7,7 @@
 -->
 
 [![NPM Version](https://img.shields.io/npm/v/kinoid?style=plastic&logo=npm&label=version)](https://www.npmjs.com/package/kinoid)
-
-<!-- [![NPM Downloads](https://img.shields.io/npm/d18m/kinoid?style=plastic&logo=npm)](https://www.npmjs.com/package/kinoid) -->
-
+[![NPM Downloads](https://img.shields.io/npm/d18m/kinoid?style=plastic&logo=npm)](https://www.npmjs.com/package/kinoid)
 [![NPM License](https://img.shields.io/npm/l/kinoid?style=plastic&logo=MIT)](https://www.gnu.org/licenses/gpl-3.0.html)
 ![Node Current](https://img.shields.io/node/v/kinoid?style=plastic&logo=nodedotjs&logoColor=white&logoSize=auto)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/kinoid?style=plastic&logo=webpack)
