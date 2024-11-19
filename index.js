@@ -15,9 +15,9 @@ module.exports = module.exports.default = function () {
   let lastTimeStamp = 0;
   let singularity = 0;
   const pid = typeof process !== "undefined" && process.pid ? process.pid : 0;
-  const timeStampLength = 15; // 13
-  const singularityLength = 12; // 6
-  const pidLength = 7; // 7
+  const timeStampLength = 13;
+  const singularityLength = 6;
+  const pidLength = 7;
 
   function zeroPadded(val, length) {
     return val.toString().padStart(length, 0);
@@ -46,19 +46,24 @@ module.exports = module.exports.default = function () {
   const publicAPI = {
     newId: function () {
       updateProperties();
-      const singularityStr = zeroPadded(singularity, singularityLength);
-      const timeStr = zeroPadded(currTimeStamp, timeStampLength);
-      const pidStr = zeroPadded(pid, pidLength);
+      const paddedSingularity = zeroPadded(singularity, singularityLength);
+      const paddedTimeStamp = zeroPadded(currTimeStamp, timeStampLength);
+      const paddedPid = zeroPadded(pid, pidLength);
 
-      return BigInt(`1${timeStr}${singularityStr}${pidStr}`).toString(36);
+      return BigInt(`${paddedTimeStamp}${paddedSingularity}${paddedPid}`).toString(36);
     },
     decodeId: function (id) {
-      const idStr = bigIntToDec(id).toString();
+      const decIdStr = bigIntToDec(id).toString();
+      const dateStart = 0;
+      const dateEnd = dateStart + timeStampLength;
+      const stepStart = dateStart + timeStampLength;
+      const stepEnd = dateStart + timeStampLength + singularityLength;
+      const pidStart = dateStart + timeStampLength + singularityLength;
       return {
         id,
-        date: new Date(Number(idStr.slice(1, 16))),
-        step: Number(idStr.slice(16, 28)),
-        pid: Number(idStr.slice(28)),
+        date: new Date(Number(decIdStr.slice(dateStart, dateEnd))),
+        step: Number(decIdStr.slice(stepStart, stepEnd)),
+        pid: Number(decIdStr.slice(pidStart)),
       };
     },
   };

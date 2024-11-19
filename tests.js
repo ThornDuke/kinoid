@@ -20,7 +20,7 @@ console.log(`
 ** with a CPU ${os.cpus()[0].model}
 **
 ** ID          : ${singleId}
-** computed on : ${decodeId(singleId).date}
+** computed on : ${decodeId(singleId).date.toISOString()}
 ** step        : ${decodeId(singleId).step}
 ** process id  : ${decodeId(singleId).pid}
 **
