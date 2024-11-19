@@ -1,7 +1,7 @@
 //
 // KINOID
 //
-// Generates a 24-character string made up of lowercase letters and numbers.
+// Generates a string made up of lowercase letters and numbers.
 // The algorithm generates each time a string different from all those
 // previously generated.
 //
@@ -11,13 +11,13 @@
 "use strict";
 
 module.exports = module.exports.default = function () {
-  let singularity = 0;
-  const singularityLength = 12;
-  let lastTimeStamp = 0;
   let currTimeStamp = 0;
-  const timeStampLength = 15;
+  let lastTimeStamp = 0;
+  let singularity = 0;
   const pid = typeof process !== "undefined" && process.pid ? process.pid : 0;
-  const pidLength = 7;
+  const timeStampLength = 15; // 13
+  const singularityLength = 12; // 6
+  const pidLength = 7; // 7
 
   function zeroPadded(val, length) {
     return val.toString().padStart(length, 0);
