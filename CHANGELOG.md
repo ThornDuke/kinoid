@@ -11,10 +11,17 @@
 ### Changed
 
 - index.js: more elegance in the code
+- index.js: the IDs can be sorted based on the generation date
 
 ### Added
 
 - README.md: one more badge
+- index.js: `decodeId()` decodes an id returning the generation date, singularity number and process
+  number
+
+### Removed
+
+- index.js: eliminated all mechanisms for generating random strings
 
 ## [1.1.1] - 2024-11-18
 

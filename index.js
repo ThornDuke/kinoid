@@ -11,61 +11,29 @@
 "use strict";
 
 module.exports = module.exports.default = function () {
-  const pool = createPool();
   let singularity = 0;
-  let lastTimeStamp = "";
-  let currTimeStamp = "";
+  const singularityLength = 12;
+  let lastTimeStamp = 0;
+  let currTimeStamp = 0;
+  const timeStampLength = 15;
+  const pid = typeof process !== "undefined" && process.pid ? process.pid : 0;
+  const pidLength = 7;
 
-  /**
-   * Generates a random integer number between 0 (inclusive) and _max_
-   * (not inclusive)
-   * @param {number} max limit value
-   * @returns {number} a random integer number between 0 (inclusive)
-   * and _max_ (not inclusive)
-   */
-  function randomValue(max = 100000) {
-    return Math.floor(Math.random() * max);
+  function zeroPadded(val, length) {
+    return val.toString().padStart(length, 0);
   }
 
   /**
-   * Generates a 36-character long string made up of the numbers from 0
-   * to 9 and all the lowercase characters of the English alphabet. The
-   * characters are randomly ordered.
-   * Kinoid uses this string to generate the random characters that will
-   * be used to construct the IDs.
-   * @returns {string} A string with randomly ordered characters
+   * Takes a string representing a base 36 number and
+   * returns the same number in base 10 as a bigInt
+   * @param {string} bigintVal
+   * @returns {BigInt}
    */
-  function createPool() {
-    return "abcdefghijklmnopqrstuvwxyz0123456789"
-      .split("")
-      .map((char) => ({
-        char,
-        r: randomValue(),
-      }))
-      .sort((prec, succ) => succ.r - prec.r)
-      .map((item) => item.char)
-      .join("");
+  function bigIntToDec(bigintVal) {
+    return [...bigintVal.toString()].reduce((r, v) => r * BigInt(36) + BigInt(parseInt(v, 36)), 0n);
   }
 
-  /**
-   * Generates a random string made up of _length_ characters
-   * @param {number} length the length of the string
-   * @returns {string} a random string
-   */
-  function randStr(length) {
-    let result = "";
-    for (let i = 1; i <= length; i++) {
-      result += pool[randomValue(pool.length)];
-    }
-    return result;
-  }
-
-  /**
-   * Transforms the system date and time into a base-36 number that
-   * is returned as a string
-   * @returns {string}
-   */
-  function timeStr() {
+  function updateProperties() {
     currTimeStamp = Date.now();
     if (currTimeStamp == lastTimeStamp) {
       singularity++;
@@ -73,28 +41,19 @@ module.exports = module.exports.default = function () {
       singularity = 0;
       lastTimeStamp = currTimeStamp;
     }
-    return currTimeStamp.toString().padStart(15, 0);
-  }
-
-  function singularityStr() {
-    return singularity.toString().padStart(12, 0);
-  }
-
-  function pidStr() {
-    const pid = typeof process !== "undefined" && process.pid ? process.pid : 0;
-    return pid.toString().padStart(7, 0);
-  }
-
-  function biToDec(value) {
-    return [...value.toString()].reduce((r, v) => r * BigInt(36) + BigInt(parseInt(v, 36)), 0n);
   }
 
   const publicAPI = {
     newId: function () {
-      return BigInt(`1${timeStr()}${singularityStr()}${pidStr()}`).toString(36);
+      updateProperties();
+      const singularityStr = zeroPadded(singularity, singularityLength);
+      const timeStr = zeroPadded(currTimeStamp, timeStampLength);
+      const pidStr = zeroPadded(pid, pidLength);
+
+      return BigInt(`1${timeStr}${singularityStr}${pidStr}`).toString(36);
     },
     decodeId: function (id) {
-      const idStr = biToDec(id).toString();
+      const idStr = bigIntToDec(id).toString();
       return {
         id,
         date: new Date(Number(idStr.slice(1, 16))),

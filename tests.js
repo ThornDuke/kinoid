@@ -7,7 +7,7 @@ const repetitions = 10000;
 
 const start = process.hrtime.bigint();
 for (let i = 1; i <= repetitions; i++) {
-  console.log(newId());
+  newId();
 }
 const end = process.hrtime.bigint();
 
@@ -24,7 +24,7 @@ console.log(`
 ** step        : ${decodeId(singleId).step}
 ** process id  : ${decodeId(singleId).pid}
 **
-** same function called ${repetitions} times
+** main function called ${repetitions} times
 **
 ** time elapsed: ${Number(end - start) / 1000000} milliseconds
 **
