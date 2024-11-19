@@ -12,12 +12,15 @@
 
 - index.js: more elegance in the code
 - index.js: the IDs can be sorted based on the generation date
+- index.js: changed the length of the ID fields
 
 ### Added
 
 - README.md: one more badge
 - index.js: `decodeId()` decodes an id returning the generation date, singularity number and process
   number
+- README.md: a chapter about "features";
+- README.md: changed the examples into the chapter "How to use"
 
 ### Removed
 

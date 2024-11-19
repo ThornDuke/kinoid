@@ -7,26 +7,15 @@
   - [x] la desinenza `Str` può essere sostituita da `Padded`
   - [x] `idStr` dovrebbe far riferimento al fatto che è decimale, non più 36ale
 - [ ] `index.js`: aggiungere la documentazione
+
+## done
+
 - [x] nel README indicare gli elementi costitutivi dell'id (data, step e processo)
 - [x] README
   - [x] nel readme aggiornare gli esempi (newId())
   - [x] nel readme aggiungere che
     - [x] gli id sono ordinabili per estrazione
     - [x] gli id sono decodificabili
-
-> Snowflakes are 64 bits in binary. (Only 63 are used to fit in a signed integer.) The first 41 bits
-> are a timestamp, representing milliseconds since the chosen epoch. The next 10 bits represent a
-> machine ID, preventing clashes. Twelve more bits represent a per-machine sequence number, to allow
-> creation of multiple snowflakes in the same millisecond. The final number is generally serialized
-> in decimal.
->
-> Snowflakes are sortable by time, because they are based on the time they were created.
-> Additionally, the time a snowflake was created can be calculated from the snowflake. This can be
-> used to get snowflakes (and their associated objects) that were created before or after a
-> particular date.
-
-## done
-
 - [x] Aggiornare i valori `maxLength`
 - [x] sistemare in `decodeId()` i limiti dei campi usando costanti collegate ai valori `maxLength`
 - [x] Aggiungere zeri all'inizio di ogni campo per rendere certa la convertibilità in tempo,
