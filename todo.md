@@ -3,13 +3,13 @@
 ## next
 
 - [ ] RENAMING
-  - [ ] cancellare la parola `step` ovunque si trovi
+  - [ ] cancellare la parola `step` _ovunque_ si trovi
   - [x] la desinenza `Str` può essere sostituita da `Padded`
   - [x] `idStr` dovrebbe far riferimento al fatto che è decimale, non più 36ale
-- [ ] `index.js`: aggiungere la documentazione
 
 ## done
 
+- [x] `index.js`: aggiungere la documentazione
 - [x] nel README indicare gli elementi costitutivi dell'id (data, step e processo)
 - [x] README
   - [x] nel readme aggiornare gli esempi (newId())
@@ -67,7 +67,7 @@ npm publish
 - [ ] delete dead branches locally
 - [ ] delete remote dead branches
 
-## Note
+## Notes
 
 ### Commit types
 

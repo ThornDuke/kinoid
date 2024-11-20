@@ -17,7 +17,7 @@
 ### Added
 
 - README.md: one more badge
-- index.js: `decodeId()` decodes an id returning the generation date, singularity number and process
+- index.js: `decodeId()` decodes an id returning the generation date, singularity factor and process
   number
 - README.md: a chapter about "features";
 - README.md: changed the examples into the chapter "How to use"
