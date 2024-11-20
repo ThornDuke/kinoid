@@ -2,20 +2,19 @@
 
 ## next
 
-- [ ] RENAMING
-  - [ ] cancellare la parola `step` _ovunque_ si trovi
-    - [ ] rivedere anche il README
-  - [x] la desinenza `Str` può essere sostituita da `Padded`
-  - [x] `idStr` dovrebbe far riferimento al fatto che è decimale, non più 36ale
-
 ## done
 
+- [x] RENAMING
+  - [x] cancellare la parola ~~step~~ _ovunque_ si trovi
+    - [x] rivedere anche il README
+  - [x] la desinenza `Str` può essere sostituita da `Padded`
+  - [x] `idStr` dovrebbe far riferimento al fatto che è decimale, non più 36ale
 - [x] README
   - [x] rivedere il paragrafo "Features", che adesso è orrendo
   - [x] Eliminare il paragrafo "Requirements" ?
   - [x] aggiungere agli esempi un intero oggetto proveniente da `decodeId()`
 - [x] `index.js`: aggiungere la documentazione
-- [x] nel README indicare gli elementi costitutivi dell'id (data, step e processo)
+- [x] nel README indicare gli elementi costitutivi dell'id (data, singularity e processo)
 - [x] README
   - [x] nel readme aggiornare gli esempi (newId())
   - [x] nel readme aggiungere che

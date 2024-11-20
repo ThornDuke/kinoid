@@ -21,7 +21,7 @@ console.log(`
 **
 ** ID          : ${singleId}
 ** computed on : ${decodeId(singleId).date.toISOString()}
-** step        : ${decodeId(singleId).step}
+** singularity : ${decodeId(singleId).singularity}
 ** process id  : ${decodeId(singleId).pid}
 **
 ** main function called ${repetitions} times

@@ -72,7 +72,7 @@ console.log(decodeId(id));
 // {
 //   id: '26cgyty8lts9s831q',
 //   date: 2024-11-19T16:52:19.962Z,
-//   step: 1134,
+//   singularity: 1134,
 //   pid: 13934
 // }
 ```

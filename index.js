@@ -85,20 +85,20 @@ module.exports = module.exports.default = function () {
      * Extracts from an ID the elements with which it was generated.
      *
      * @param {string} id a valid ID
-     * @returns {{id: string, date: Date, step: number, pid: number}}
+     * @returns {{id: string, date: Date, singularity: number, pid: number}}
      *  an object containing the constituent elements of the ID
      */
     decodeId: function (id) {
       const decIdStr = bigIntToDec(id).toString();
       const dateStart = 0;
       const dateEnd = dateStart + timeStampLength;
-      const stepStart = dateStart + timeStampLength;
-      const stepEnd = dateStart + timeStampLength + singularityLength;
+      const singularityStart = dateStart + timeStampLength;
+      const singularityEnd = dateStart + timeStampLength + singularityLength;
       const pidStart = dateStart + timeStampLength + singularityLength;
       return {
         id,
         date: new Date(Number(decIdStr.slice(dateStart, dateEnd))),
-        step: Number(decIdStr.slice(stepStart, stepEnd)),
+        singularity: Number(decIdStr.slice(singularityStart, singularityEnd)),
         pid: Number(decIdStr.slice(pidStart)),
       };
     },
