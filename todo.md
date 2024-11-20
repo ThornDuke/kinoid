@@ -4,6 +4,7 @@
 
 ## done
 
+- [x] benchmark.js: portare tutte le misure a bigint
 - [x] RENAMING
   - [x] cancellare la parola ~~step~~ _ovunque_ si trovi
     - [x] rivedere anche il README
