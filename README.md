@@ -25,9 +25,9 @@ generated _simultaneously_ in any other process running on the same machine.
 
 ### Features
 
-Each ID is composed of a timestamp, representing milliseconds since the UNIX epoch. Then there is a
-number that identifies the process in which the program runs. Then there is a final number which is
-a "serialization value" or "singularity factor" that guarantees the uniqueness of the ID.
+Each ID is composed of a timestamp (representing milliseconds since the UNIX epoch), a number that
+identifies the process in which the program runs, and a final number which can be said a
+_serialization value_ or a _singularity factor_ that guarantees the uniqueness of the ID.
 
 IDs are sortable by time, because they are based on the time they were created. Additionally, the
 time an ID was created can be calculated from the ID itself thanks to the `decodeId()` function
@@ -41,10 +41,6 @@ create cryptographically secure strings.
 
 If you are interested in a library for creating cryptographically secure passwords, try
 [crypto-pwd-generator](https://www.npmjs.com/package/crypto-pwd-generator)
-
-## Requirements
-
-`Node` version 8 or later.
 
 ## Installation
 
@@ -71,6 +67,14 @@ console.log(id);
 
 console.log(`The id '${id}' was generated on ${decodeId(id).date.toDateString()}`);
 // The id '26cgyty8lts9s831q' was generated on Tue Nov 19 2024
+
+console.log(decodeId(id));
+// {
+//   id: '26cgyty8lts9s831q',
+//   date: 2024-11-19T16:52:19.962Z,
+//   step: 1134,
+//   pid: 13934
+// }
 ```
 
 ### `require`

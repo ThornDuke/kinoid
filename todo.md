@@ -4,11 +4,16 @@
 
 - [ ] RENAMING
   - [ ] cancellare la parola `step` _ovunque_ si trovi
+    - [ ] rivedere anche il README
   - [x] la desinenza `Str` può essere sostituita da `Padded`
   - [x] `idStr` dovrebbe far riferimento al fatto che è decimale, non più 36ale
 
 ## done
 
+- [x] README
+  - [x] rivedere il paragrafo "Features", che adesso è orrendo
+  - [x] Eliminare il paragrafo "Requirements" ?
+  - [x] aggiungere agli esempi un intero oggetto proveniente da `decodeId()`
 - [x] `index.js`: aggiungere la documentazione
 - [x] nel README indicare gli elementi costitutivi dell'id (data, step e processo)
 - [x] README
@@ -50,13 +55,13 @@
 npm pack
 ```
 
-1. Login:
+2. Login:
 
 ```bash
 npm login
 ```
 
-1. Publish:
+3. Publish:
 
 ```bash
 npm publish

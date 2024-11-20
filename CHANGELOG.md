@@ -13,6 +13,7 @@
 - index.js: more elegance in the code
 - index.js: the IDs can be sorted based on the generation date
 - index.js: changed the length of the ID fields
+- index.js: fully documented code
 
 ### Added
 
