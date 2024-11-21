@@ -2,10 +2,9 @@
 
 ## next
 
-- [ ] benchmark.md: è sempre Node che fa girare il benchmark?
-
 ## done
 
+- [x] benchmark.md: è sempre Node che fa girare il benchmark?
 - [x] index.js:
   - [x] controlli sulla dimensione raggiunta dalle stringhe, in modo da intercettare il maggior
         numero di errori anche se in modo generico <https://jsdoc.app/tags-throws>,

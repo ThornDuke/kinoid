@@ -4,6 +4,7 @@
 # This project
 package-lock.json
 project-notes.md
+tests.js
 
 # environment files
 .npmignore

@@ -20,7 +20,7 @@ const operationsPerSec = Number((BigInt(repetitions) * 1000000000n) / BigInt(del
 
 console.log(`
 **
-** Test performed on ${process.release.name} ${process.version}
+** Tests performed on ${process.release.name} ${process.version}
 ** running on ${os.arch()} with ${os.type()} ${os.release()} OS
 ** with a CPU ${os.cpus()[0].model}
 **
