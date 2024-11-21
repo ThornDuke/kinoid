@@ -59,7 +59,7 @@ module.exports = module.exports.default = function () {
   /**
    * Function that is invoked every time an ID is generated. Calculate
    * the timestamp value by assigning it the number of milliseconds
-   * that have passed since the UNIX epoch. The value of `singularity`
+   * that have passed since the `startTime` epoch. The value of `singularity`
    * is incremented if the current timestamp value is the same as the
    * previous one, otherwise it is reset to zero.
    */
@@ -90,9 +90,10 @@ module.exports = module.exports.default = function () {
   const publicAPI = {
     /**
      * Generate a unique ID. The ID is unique because it is different
-     * from all the others generated previously, subsequently or at
+     * from all the other ones generated previously, subsequently or at
      * the same time on the same machine. An ID is made up of lowercase
      * characters and numbers
+     *
      * @returns {string} the ID
      */
     newId: function () {
