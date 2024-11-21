@@ -22,6 +22,7 @@
   number
 - README.md: a chapter about "features";
 - README.md: changed the examples into the chapter "How to use"
+- benchmark.js: a new set of tests
 
 ### Removed
 

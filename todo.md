@@ -4,6 +4,11 @@
 
 ## done
 
+- [x] index.js:
+  - [x] controlli sulla dimensione raggiunta dalle stringhe, in modo da intercettare il maggior
+        numero di errori anche se in modo generico <https://jsdoc.app/tags-throws>,
+        <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error>.
+  - [x] [?] dettagli jsdoc: <https://jsdoc.app/howto-commonjs-modules>
 - [x] benchmark.js: portare tutte le misure a bigint
 - [x] RENAMING
   - [x] cancellare la parola ~~step~~ _ovunque_ si trovi

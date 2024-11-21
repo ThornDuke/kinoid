@@ -19,13 +19,20 @@ module.exports = module.exports.default = function () {
   const singularityLength = 6;
   const pidLength = 7;
 
+  if (pid.toString.length > pidLength) {
+    throw new RangeError(
+      "a critical technical limit has been exceeded, Kinoid can no longer produce unique IDs. Ask for the library update.",
+      { cause: "pid is out of range" }
+    );
+  }
+
   /**
    * Convert the number `val` to a string and then pads it with zeroes
    * (multiple times, if needed) until the resulting string reaches the
    * given `length`. The padding is applied from the start of the
    * string.
    *
-   * @param {number} val the number that needs to be filled on the left
+   * @param {number|string} val the number that needs to be filled on the left
    * @param {number} length the length of the resulting string once the
    *  current `val` has been padded. If the value is less than or equal
    *  to `val.length`, then `val` is returned as-is.
@@ -55,12 +62,44 @@ module.exports = module.exports.default = function () {
    * previous one, otherwise it is reset to zero.
    */
   function updateProperties() {
+    // Checking these values ​​ensures that the IDs are all 17 characters long
+    const lastId = {
+      timeStamp: 2865117999580, // 2060-10-16T02:06:39.580Z
+      singularity: 704318,
+      pid: 38109695,
+    };
+
     currTimeStamp = Date.now();
     if (currTimeStamp == lastTimeStamp) {
       singularity++;
     } else {
       singularity = 0;
       lastTimeStamp = currTimeStamp;
+    }
+
+    if (
+      currTimeStamp >= lastId.timeStamp &&
+      singularity >= lastId.singularity &&
+      pid >= lastId.pid
+    ) {
+      throw new RangeError(
+        "a critical technical limit has been exceeded, Kinoid can no longer produce unique IDs. Ask for the library update.",
+        { cause: "ID is out of range" }
+      );
+    }
+
+    if (currTimeStamp.toString.length > timeStampLength) {
+      throw new RangeError(
+        "a critical technical limit has been exceeded, Kinoid can no longer produce unique IDs. Ask for the library update.",
+        { cause: "timeStamp is out of range" }
+      );
+    }
+
+    if (singularity.toString.length > singularityLength) {
+      throw new RangeError(
+        "a critical technical limit has been exceeded, Kinoid can no longer produce unique IDs. Ask for the library update.",
+        { cause: "singularity is out of range" }
+      );
     }
   }
 
@@ -73,7 +112,13 @@ module.exports = module.exports.default = function () {
      * @returns {string} the ID
      */
     newId: function () {
-      updateProperties();
+      try {
+        updateProperties();
+      } catch (e) {
+        console.log(`${e.name}: ${e.message} [${e.cause}]`);
+        throw e;
+      }
+
       const paddedSingularity = zeroPadded(singularity, singularityLength);
       const paddedTimeStamp = zeroPadded(currTimeStamp, timeStampLength);
       const paddedPid = zeroPadded(pid, pidLength);
