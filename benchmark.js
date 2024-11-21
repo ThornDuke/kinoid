@@ -3,7 +3,7 @@ const kinoid = require("./index");
 
 const { newId, decodeId } = kinoid();
 
-const repetitions = 10000;
+const repetitions = 1000000;
 
 const start = process.hrtime.bigint();
 for (let i = 1; i <= repetitions; i++) {
@@ -20,19 +20,19 @@ const operationsPerSec = Number((BigInt(repetitions) * 1000000000n) / BigInt(del
 
 console.log(`
 **
-** Test performed on Node ${process.version}
+** Test performed on ${process.release.name} ${process.version}
 ** running on ${os.arch()} with ${os.type()} ${os.release()} OS
 ** with a CPU ${os.cpus()[0].model}
 **
-** one ID
-**   ID          : ${singleId}
-**   computed on : ${decodeId(singleId).date.toISOString()}
-**   singularity : ${decodeId(singleId).singularity}
-**   process id  : ${decodeId(singleId).pid}
+** generate and decode one ID
+**   ID           : ${singleId}
+**   computed on  : ${decodeId(singleId).date.toISOString()}
+**   singularity  : ${decodeId(singleId).singularity}
+**   process id   : ${decodeId(singleId).pid}
 **
-** ids generated ${repetitions} times
-**   time elapsed: ${elapsedTimeMs} milliseconds
-**   time for op : ${timeForOneOpNs} nanoseconds
-**   ops/s       : ${operationsPerSec}
+** ids generated ${new Intl.NumberFormat().format(repetitions)} times
+**   time elapsed : ${new Intl.NumberFormat().format(elapsedTimeMs)} milliseconds
+**   time for op  : ${new Intl.NumberFormat().format(timeForOneOpNs)} nanoseconds
+**   ops/s        : ${new Intl.NumberFormat().format(operationsPerSec)}
 **
 `);

@@ -77,17 +77,6 @@ module.exports = module.exports.default = function () {
       lastTimeStamp = currTimeStamp;
     }
 
-    if (
-      currTimeStamp >= lastId.timeStamp &&
-      singularity >= lastId.singularity &&
-      pid >= lastId.pid
-    ) {
-      throw new RangeError(
-        "a critical technical limit has been exceeded, Kinoid can no longer produce unique IDs. Ask for the library update.",
-        { cause: "ID is out of range" }
-      );
-    }
-
     if (currTimeStamp.toString.length > timeStampLength) {
       throw new RangeError(
         "a critical technical limit has been exceeded, Kinoid can no longer produce unique IDs. Ask for the library update.",
@@ -99,6 +88,17 @@ module.exports = module.exports.default = function () {
       throw new RangeError(
         "a critical technical limit has been exceeded, Kinoid can no longer produce unique IDs. Ask for the library update.",
         { cause: "singularity is out of range" }
+      );
+    }
+
+    if (
+      currTimeStamp >= lastId.timeStamp &&
+      singularity >= lastId.singularity &&
+      pid >= lastId.pid
+    ) {
+      throw new RangeError(
+        "a critical technical limit has been exceeded, Kinoid can no longer produce unique IDs. Ask for the library update.",
+        { cause: "ID is out of range" }
       );
     }
   }

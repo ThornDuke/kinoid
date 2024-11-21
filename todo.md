@@ -2,6 +2,8 @@
 
 ## next
 
+- [ ] benchmark.md: è sempre Node che fa girare il benchmark?
+
 ## done
 
 - [x] index.js:
