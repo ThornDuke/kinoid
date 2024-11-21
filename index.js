@@ -14,13 +14,13 @@ module.exports = module.exports.default = function () {
   let currTimeStamp = 0;
   let lastTimeStamp = 0;
   let singularity = 0;
+  const startTime = 1640434800000; // 2021-12-25T12:20:00.000Z
+  const slipPreventer = "1";
   const timeStampLength = 13;
   const singularityLength = 6;
-  const startTime = 1730419200000; // 2024-11-01T00:00:00.000Z
-  const slipPreventer = "1";
-
-  const pid = typeof process !== "undefined" && process.pid ? process.pid : 0;
   const pidLength = 7;
+  const pid = typeof process !== "undefined" && process.pid ? process.pid : 0;
+
   if (pid.toString.length > pidLength) {
     throw new RangeError(
       "a critical technical limit has been exceeded, Kinoid can no longer produce unique IDs. Ask for the library update.",
