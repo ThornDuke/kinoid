@@ -50,7 +50,7 @@ module.exports = module.exports.default = function () {
    * @param {string} bigintVal
    * @returns {BigInt}
    */
-  function bigIntToDec(bigintVal) {
+  function int36ToBigInt(bigintVal) {
     return [...bigintVal.toString()].reduce((r, v) => r * BigInt(36) + BigInt(parseInt(v, 36)), 0n);
   }
 
@@ -134,7 +134,7 @@ module.exports = module.exports.default = function () {
      *  an object containing the constituent elements of the ID
      */
     decodeId: function (id) {
-      const decIdStr = bigIntToDec(id).toString();
+      const decIdStr = int36ToBigInt(id).toString();
       const dateStart = 0;
       const dateEnd = dateStart + timeStampLength;
       const singularityStart = dateStart + timeStampLength;
