@@ -30,6 +30,7 @@ console.log(`
 **
 ** generate and decode one ID
 **   ID           : ${singleId}
+**   id length    : ${singleId.length} chars
 **   computed on  : ${decodeId(singleId).date.toISOString()}
 **   singularity  : ${decodeId(singleId).singularity}
 **   process id   : ${decodeId(singleId).pid}

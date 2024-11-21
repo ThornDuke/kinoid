@@ -4,6 +4,7 @@
 
 ## done
 
+- [x] far partire il timer da novembre 2024
 - [x] benchmark.md: è sempre Node che fa girare il benchmark?
 - [x] index.js:
   - [x] controlli sulla dimensione raggiunta dalle stringhe, in modo da intercettare il maggior

@@ -14,11 +14,13 @@ module.exports = module.exports.default = function () {
   let currTimeStamp = 0;
   let lastTimeStamp = 0;
   let singularity = 0;
-  const pid = typeof process !== "undefined" && process.pid ? process.pid : 0;
   const timeStampLength = 13;
   const singularityLength = 6;
-  const pidLength = 7;
+  const startTime = 1730419200000; // 2024-11-01T00:00:00.000Z
+  const slipPreventer = "1";
 
+  const pid = typeof process !== "undefined" && process.pid ? process.pid : 0;
+  const pidLength = 7;
   if (pid.toString.length > pidLength) {
     throw new RangeError(
       "a critical technical limit has been exceeded, Kinoid can no longer produce unique IDs. Ask for the library update.",
@@ -62,14 +64,7 @@ module.exports = module.exports.default = function () {
    * previous one, otherwise it is reset to zero.
    */
   function updateProperties() {
-    // Checking these values ​​ensures that the IDs are all 17 characters long
-    const lastId = {
-      timeStamp: 2865117999580, // 2060-10-16T02:06:39.580Z
-      singularity: 704318,
-      pid: 38109695,
-    };
-
-    currTimeStamp = Date.now();
+    currTimeStamp = Date.now() - startTime;
     if (currTimeStamp == lastTimeStamp) {
       singularity++;
     } else {
@@ -90,17 +85,6 @@ module.exports = module.exports.default = function () {
         { cause: "singularity is out of range" }
       );
     }
-
-    if (
-      currTimeStamp >= lastId.timeStamp &&
-      singularity >= lastId.singularity &&
-      pid >= lastId.pid
-    ) {
-      throw new RangeError(
-        "a critical technical limit has been exceeded, Kinoid can no longer produce unique IDs. Ask for the library update.",
-        { cause: "ID is out of range" }
-      );
-    }
   }
 
   const publicAPI = {
@@ -114,16 +98,18 @@ module.exports = module.exports.default = function () {
     newId: function () {
       try {
         updateProperties();
-      } catch (e) {
-        console.log(`${e.name}: ${e.message} [${e.cause}]`);
-        throw e;
+      } catch (error) {
+        console.log(`${error.name}: ${error.message} [${error.cause}]`);
+        throw error;
       }
 
       const paddedSingularity = zeroPadded(singularity, singularityLength);
       const paddedTimeStamp = zeroPadded(currTimeStamp, timeStampLength);
       const paddedPid = zeroPadded(pid, pidLength);
 
-      return BigInt(`${paddedTimeStamp}${paddedSingularity}${paddedPid}`).toString(36);
+      return BigInt(`${slipPreventer}${paddedTimeStamp}${paddedSingularity}${paddedPid}`).toString(
+        36
+      );
     },
 
     /**
@@ -134,7 +120,7 @@ module.exports = module.exports.default = function () {
      *  an object containing the constituent elements of the ID
      */
     decodeId: function (id) {
-      const decIdStr = int36ToBigInt(id).toString();
+      const decIdStr = int36ToBigInt(id).toString().substring(slipPreventer.length);
       const dateStart = 0;
       const dateEnd = dateStart + timeStampLength;
       const singularityStart = dateStart + timeStampLength;
@@ -142,7 +128,7 @@ module.exports = module.exports.default = function () {
       const pidStart = dateStart + timeStampLength + singularityLength;
       return {
         id,
-        date: new Date(Number(decIdStr.slice(dateStart, dateEnd))),
+        date: new Date(Number(decIdStr.slice(dateStart, dateEnd)) + startTime),
         singularity: Number(decIdStr.slice(singularityStart, singularityEnd)),
         pid: Number(decIdStr.slice(pidStart)),
       };

@@ -14,6 +14,7 @@
 - index.js: the IDs can be sorted based on the generation date
 - index.js: changed the length of the ID fields
 - index.js: fully documented code
+- index.js: starting time is 2024-11-01
 
 ### Added
 
