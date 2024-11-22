@@ -14,7 +14,8 @@
     "uid",
     "guid",
     "node",
-    "generator"
+    "generator",
+    "id generator"
   ],
   "homepage": "https://github.com/ThornDuke/kinoid",
   "repository": {

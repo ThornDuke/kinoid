@@ -6,6 +6,21 @@
 - filename {section}: description
 -->
 
+## [Unreleased]
+
+### Changed
+
+- index.js: refactoring
+- README.md: typo
+
+### Added
+
+- package.json: new keyword
+
+### Removed
+
+- README.md: one badge less
+
 ## [2.0.0] - 2024-11-22
 
 ### Changed

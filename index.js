@@ -24,12 +24,12 @@ module.exports = module.exports.default = function () {
   try {
     if (typeof process !== "undefined" && process.pid) {
       pid = process.pid;
-    }
-    if (pid.toString.length > pidLength) {
-      throw new RangeError(
-        "a critical technical limit has been exceeded, Kinoid can no longer produce unique IDs. Ask for the library update.",
-        { cause: "pid is out of range" }
-      );
+      if (pid.toString.length > pidLength) {
+        throw new RangeError(
+          "a critical technical limit has been exceeded, Kinoid can no longer produce unique IDs. Ask for the library update.",
+          { cause: "pid is out of range" }
+        );
+      }
     }
   } catch (error) {
     console.log(`${error.name}: ${error.message} [${error.cause}]`);
@@ -61,7 +61,10 @@ module.exports = module.exports.default = function () {
    * @returns {BigInt}
    */
   function int36ToBigInt(bigintVal) {
-    return [...bigintVal.toString()].reduce((r, v) => r * BigInt(36) + BigInt(parseInt(v, 36)), 0n);
+    return bigintVal
+      .toString()
+      .split("")
+      .reduce((result, char) => result * BigInt(36) + BigInt(parseInt(char, 36)), 0n);
   }
 
   /**

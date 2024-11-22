@@ -2,6 +2,8 @@
 
 ## next
 
+- README.md: paragrafo "Warning": rivederlo
+
 ## done
 
 - [x] far partire il timer da novembre 2024
