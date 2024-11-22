@@ -18,14 +18,22 @@ module.exports = module.exports.default = function () {
   const slipPreventer = "1";
   const timeStampLength = 13;
   const singularityLength = 6;
+  let pid = 0;
   const pidLength = 7;
-  const pid = typeof process !== "undefined" && process.pid ? process.pid : 0;
 
-  if (pid.toString.length > pidLength) {
-    throw new RangeError(
-      "a critical technical limit has been exceeded, Kinoid can no longer produce unique IDs. Ask for the library update.",
-      { cause: "pid is out of range" }
-    );
+  try {
+    if (typeof process !== "undefined" && process.pid) {
+      pid = process.pid;
+    }
+    if (pid.toString.length > pidLength) {
+      throw new RangeError(
+        "a critical technical limit has been exceeded, Kinoid can no longer produce unique IDs. Ask for the library update.",
+        { cause: "pid is out of range" }
+      );
+    }
+  } catch (error) {
+    console.log(`${error.name}: ${error.message} [${error.cause}]`);
+    throw error;
   }
 
   /**

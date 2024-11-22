@@ -3,6 +3,7 @@
 "use strict";
 
 const os = require("os");
+const process = require("node:process");
 const kinoid = require("./index");
 
 const { newId, decodeId } = kinoid();
@@ -35,7 +36,7 @@ console.log(`
 **   singularity  : ${decodeId(singleId).singularity}
 **   process id   : ${decodeId(singleId).pid}
 **
-** ids generated ${new Intl.NumberFormat().format(repetitions)} times
+** generate ${new Intl.NumberFormat().format(repetitions)} IDs
 **   time elapsed : ${new Intl.NumberFormat().format(elapsedTimeMs)} milliseconds
 **   time for op  : ${new Intl.NumberFormat().format(timeForOneOpNs)} nanoseconds
 **   ops/s        : ${new Intl.NumberFormat().format(operationsPerSec)}
