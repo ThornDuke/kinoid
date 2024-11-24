@@ -35,11 +35,14 @@ returns an object containing, among other things, the date on which that ID was 
 
 ### Warning
 
-**IDs are not passwords**. Kinoid ensures that each generated id is _unique_, not _unpredictable_.
-No ID has ever been created the same and will never happen in the future. Kinoid is not intended to
-create cryptographically secure strings.
+**IDs are not passwords**. Kinoid ensures that each generated ID is _unique_, but not _necessarily
+unpredictable_.
 
-If you are interested in a library for creating cryptographically secure passwords, try
+This depends on a limit that affects _all_ libraries: an algorithm that produces unpredictable
+strings cannot guarantee their uniqueness and, vice versa, an algorithm that produces unique strings
+cannot guarantee their unpredictability.
+
+If you need a library for creating cryptographically secure passwords, consider
 [crypto-pwd-generator](https://www.npmjs.com/package/crypto-pwd-generator)
 
 ## Installation
@@ -63,17 +66,17 @@ const { newId, decodeId } = kinoid();
 const id = newId();
 
 console.log(id);
-// 26cgyty8lts9s831q
+// cohb4z87mvoyf1zjy
 
 console.log(`The id '${id}' was generated on ${decodeId(id).date.toDateString()}`);
-// The id '26cgyty8lts9s831q' was generated on Tue Nov 19 2024
+// The id 'cohb4z87mvoyf1zjy' was generated on Tue Nov 19 2024
 
 console.log(decodeId(id));
 // {
-//   id: '26cgyty8lts9s831q',
+//   id: 'cohb4z87mvoyf1zjy',
 //   date: 2024-11-19T16:52:19.962Z,
-//   singularity: 1134,
-//   pid: 13934
+//   singularity: 1144,
+//   pid: 5438
 // }
 ```
 

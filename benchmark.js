@@ -2,7 +2,7 @@
 
 "use strict";
 
-const os = require("os");
+const os = require("node:os");
 const process = require("node:process");
 const kinoid = require("./index");
 

@@ -14,21 +14,20 @@ module.exports = module.exports.default = function () {
   let currTimeStamp = 0;
   let lastTimeStamp = 0;
   let singularity = 0;
-  const startTime = 1640434800000; // 2021-12-25T12:20:00.000Z
+  const startTime = 1640434800000;
   const slipPreventer = "1";
   const timeStampLength = 13;
   const singularityLength = 6;
   let pid = 0;
   const pidLength = 7;
+  const errMsg =
+    "A critical technical limit has been exceeded, Kinoid can no longer produce unique IDs. Ask for the library update.";
 
   try {
     if (typeof process !== "undefined" && process.pid) {
       pid = process.pid;
       if (pid.toString.length > pidLength) {
-        throw new RangeError(
-          "a critical technical limit has been exceeded, Kinoid can no longer produce unique IDs. Ask for the library update.",
-          { cause: "pid is out of range" }
-        );
+        throw new RangeError(errMsg, { cause: "pid is out of range" });
       }
     }
   } catch (error) {
@@ -75,26 +74,25 @@ module.exports = module.exports.default = function () {
    * previous one, otherwise it is reset to zero.
    */
   function updateProperties() {
-    currTimeStamp = Date.now() - startTime;
-    if (currTimeStamp == lastTimeStamp) {
-      singularity++;
-    } else {
-      singularity = 0;
-      lastTimeStamp = currTimeStamp;
-    }
+    try {
+      currTimeStamp = Date.now() - startTime;
+      if (currTimeStamp == lastTimeStamp) {
+        singularity++;
+      } else {
+        singularity = 0;
+        lastTimeStamp = currTimeStamp;
+      }
 
-    if (currTimeStamp.toString.length > timeStampLength) {
-      throw new RangeError(
-        "a critical technical limit has been exceeded, Kinoid can no longer produce unique IDs. Ask for the library update.",
-        { cause: "timeStamp is out of range" }
-      );
-    }
+      if (currTimeStamp.toString.length > timeStampLength) {
+        throw new RangeError(errMsg, { cause: "timeStamp is out of range" });
+      }
 
-    if (singularity.toString.length > singularityLength) {
-      throw new RangeError(
-        "a critical technical limit has been exceeded, Kinoid can no longer produce unique IDs. Ask for the library update.",
-        { cause: "singularity is out of range" }
-      );
+      if (singularity.toString.length > singularityLength) {
+        throw new RangeError(errMsg, { cause: "singularity is out of range" });
+      }
+    } catch (error) {
+      console.log(`${error.name}: ${error.message} [${error.cause}]`);
+      throw error;
     }
   }
 
@@ -108,12 +106,7 @@ module.exports = module.exports.default = function () {
      * @returns {string} the ID
      */
     newId: function () {
-      try {
-        updateProperties();
-      } catch (error) {
-        console.log(`${error.name}: ${error.message} [${error.cause}]`);
-        throw error;
-      }
+      updateProperties();
 
       const paddedSingularity = zeroPadded(singularity, singularityLength);
       const paddedTimeStamp = zeroPadded(currTimeStamp, timeStampLength);

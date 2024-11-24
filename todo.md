@@ -2,10 +2,10 @@
 
 ## next
 
-- README.md: paragrafo "Warning": rivederlo
-
 ## done
 
+- [x] README.md: paragrafo "Warning": rivederlo
+- [x] index.js: il testo dell'errore è sempre uguale. Forse va in un apposita costante.
 - [x] far partire il timer da novembre 2024
 - [x] benchmark.md: è sempre Node che fa girare il benchmark?
 - [x] index.js:

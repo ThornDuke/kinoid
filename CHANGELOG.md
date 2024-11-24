@@ -4,14 +4,16 @@
 ## [Unreleased] | [major.minor.patch] - yyyy-mm-dd
 ### Added | Fixed | Changed | Removed | Deprecated | Security
 - filename {section}: description
+
+https://gist.github.com/ThornDuke/64da76cd4a56b16492d5101691f6108f
 -->
 
-## [Unreleased]
+## [2.0.1] - 2024-11-24
 
 ### Changed
 
 - index.js: refactoring
-- README.md: typo
+- README.md: Rewritten some paragraphs
 
 ### Added
 
