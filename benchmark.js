@@ -17,11 +17,13 @@ for (let i = 1; i <= repetitions; i++) {
 const end = process.hrtime.bigint();
 
 const singleId = newId();
+const idStructure = decodeId(singleId);
 
 const deltaT = Number(end - start);
 const elapsedTimeMs = deltaT / 1000000;
 const timeForOneOpNs = deltaT / repetitions;
 const operationsPerSec = Number((BigInt(repetitions) * 1000000000n) / BigInt(deltaT));
+const formatted = new Intl.NumberFormat().format;
 
 console.log(`
 **
@@ -32,13 +34,13 @@ console.log(`
 ** generate and decode one ID
 **   ID           : ${singleId}
 **   id length    : ${singleId.length} chars
-**   computed on  : ${decodeId(singleId).date.toISOString()}
-**   singularity  : ${decodeId(singleId).singularity}
-**   process id   : ${decodeId(singleId).pid}
+**   computed on  : ${idStructure.date.toISOString()}
+**   singularity  : ${idStructure.singularity}
+**   process id   : ${idStructure.pid}
 **
 ** generate ${new Intl.NumberFormat().format(repetitions)} IDs
-**   time elapsed : ${new Intl.NumberFormat().format(elapsedTimeMs)} milliseconds
-**   time for op  : ${new Intl.NumberFormat().format(timeForOneOpNs)} nanoseconds
-**   ops/s        : ${new Intl.NumberFormat().format(operationsPerSec)}
+**   time elapsed : ${formatted(elapsedTimeMs)} milliseconds
+**   time for op  : ${formatted(timeForOneOpNs)} nanoseconds
+**   ops/s        : ${formatted(operationsPerSec)}
 **
 `);

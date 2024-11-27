@@ -4,6 +4,7 @@
 
 ## done
 
+- [x] refactor: {index.js} `lastTimeStamp` needs to change to `prevTimeStamp`
 - [x] README.md: paragrafo "Warning": rivederlo
 - [x] index.js: il testo dell'errore è sempre uguale. Forse va in un apposita costante.
 - [x] far partire il timer da novembre 2024
@@ -78,17 +79,11 @@ npm publish
 
 ### post releasing
 
-- [ ] delete dead branches locally
+- [ ] delete dead branches locally
 - [ ] delete remote dead branches
 
 ## Notes
 
 ### Commit types
 
-- **feat**: new feature for the user, not a new feature for build script
-- **fix**: bug fix for the user, not a fix to a build script
-- **docs**: changes to the documentation
-- **style**: formatting, missing semi colons, etc; no production code change
-- **refactor**: refactoring production code, eg. renaming a variable
-- **test**: adding missing tests, refactoring tests; no production code change
-- **chore**: updating grunt tasks etc; no production code change
+<https://gist.github.com/ThornDuke/b9cdad1065a617486ad0575426f53c36>

@@ -12,7 +12,7 @@
 
 module.exports = module.exports.default = function () {
   let currTimeStamp = 0;
-  let lastTimeStamp = 0;
+  let prevTimeStamp = 0;
   let singularity = 0;
   const startTime = 1640434800000;
   const slipPreventer = "1";
@@ -76,11 +76,11 @@ module.exports = module.exports.default = function () {
   function updateProperties() {
     try {
       currTimeStamp = Date.now() - startTime;
-      if (currTimeStamp == lastTimeStamp) {
+      if (currTimeStamp == prevTimeStamp) {
         singularity++;
       } else {
         singularity = 0;
-        lastTimeStamp = currTimeStamp;
+        prevTimeStamp = currTimeStamp;
       }
 
       if (currTimeStamp.toString.length > timeStampLength) {
