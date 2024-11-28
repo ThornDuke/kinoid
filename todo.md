@@ -4,6 +4,7 @@
 
 ## done
 
+- [x] README.md: passare a gemini anche i paragraphi non ancora guardati
 - [x] refactor: {index.js} `lastTimeStamp` needs to change to `prevTimeStamp`
 - [x] README.md: paragrafo "Warning": rivederlo
 - [x] index.js: il testo dell'errore è sempre uguale. Forse va in un apposita costante.

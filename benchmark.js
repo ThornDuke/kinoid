@@ -23,6 +23,7 @@ const deltaT = Number(end - start);
 const elapsedTimeMs = deltaT / 1000000;
 const timeForOneOpNs = deltaT / repetitions;
 const operationsPerSec = Number((BigInt(repetitions) * 1000000000n) / BigInt(deltaT));
+
 const formatted = new Intl.NumberFormat().format;
 
 console.log(`
