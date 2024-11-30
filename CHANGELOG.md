@@ -8,6 +8,17 @@
 https://gist.github.com/ThornDuke/64da76cd4a56b16492d5101691f6108f
 -->
 
+## [Unreleased]
+
+### Added
+
+- README.md: a warning about the "import" feature
+- README.md: the Node version badge
+
+### Changed
+
+- index.js: better coding style
+
 ## [3.0.1] - 2024-11-30
 
 ### Added

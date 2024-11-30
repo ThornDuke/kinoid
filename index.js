@@ -146,11 +146,10 @@ function kinoid() {
 // Using 'new Function()' _this_ is always bound
 // to the global scope and the function returns
 // the correct result
-let isNode = new Function(`
+const isNode = new Function(`
 try {
   return this === global;
-}
-catch (e) {
+} catch (e) {
   return false;
 }
 `);

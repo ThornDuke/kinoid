@@ -2,18 +2,20 @@
 
 ## next
 
-- [ ] pubblicare sui servizi per il browser
+## done
+
+- [x] pubblicare sui servizi per il browser
 
   - [x] branch: **dev-cdn-publish**
 
-  - [ ] pubblicare su [unpkg](https://unpkg.com)
-    - [ ] `browser` e `unpkg`
+  - [x] pubblicare su [unpkg](https://unpkg.com)
+    - [x] `browser` e `unpkg`
       - <https://areknawo.com/whats-what-package-json-cheatsheet/#:~:text=g.%20window).-,unpkg,-Maybe%20it%E2%80%99s%20not>
       - <https://docs.npmjs.com/cli/v10/configuring-npm/package-json#browser>
       - <https://medium.com/@gaute.meek/how-to-publish-a-js-library-to-npm-and-cdn-9d0bf9b48e11>
-    - [ ] <https://kentcdodds.com/blog/unpkg-an-open-source-cdn-for-npm>
-    - [ ] Testare sul browser
-  - [ ] pubblicare su [jsdelivr](https://www.jsdelivr.com/)
+    - [x] <https://kentcdodds.com/blog/unpkg-an-open-source-cdn-for-npm>
+    - [x] Testare sul browser
+  - [x] pubblicare su [jsdelivr](https://www.jsdelivr.com/)
 
   - [x] README
     - [x] aggiungere esempi di importazione con il browser
@@ -21,8 +23,6 @@
       - `kinoid().newId()`
       - `kinoid().decodeId()`
     - [x] aggiungere due righe sul readme per le differenze tra `Node` e browser
-
-## done
 
 - [x] README.md: passare a gemini anche i paragraphi non ancora guardati
 - [x] refactor: {index.js} `lastTimeStamp` needs to change to `prevTimeStamp`

@@ -4,7 +4,6 @@
 ![npms.io](https://img.shields.io/npms-io/maintenance-score/kinoid?style=plastic&logo=npm&label=maintenance)
 ![npms.io](https://img.shields.io/npms-io/quality-score/kinoid?style=plastic&logo=npm&label=quality)
 ![npms.io](https://img.shields.io/npms-io/popularity-score/kinoid?style=plastic&logo=npm&label=popularity)
-![Node Current](https://img.shields.io/node/v/kinoid?style=plastic&logo=nodedotjs&logoColor=white&logoSize=auto)
 -->
 
 [![NPM Version](https://img.shields.io/npm/v/kinoid?style=plastic&logo=npm&label=version)](https://www.npmjs.com/package/kinoid)
@@ -60,6 +59,8 @@ yarn add kinoid
 
 ### `import`
 
+To use this feature, set `"type": "module"` in the `package.json` or use the `.mjs` extension.
+
 ```javascript
 import kinoid from "kinoid";
 const { newId, decodeId } = kinoid();
@@ -103,7 +104,10 @@ db.add(newBook);
 <html lang="en">
   <head>
     <title>ID generator</title>
+    <script src="https://cdn.jsdelivr.net/npm/kinoid@3.0.1"></script>
+    <!--
     <script src="https://unpkg.com/kinoid"></script>
+    -->
     <script>
       function clickHandler() {
         const { newId, decodeId } = kinoid();
@@ -113,8 +117,7 @@ db.add(newBook);
         document.getElementById("id-viewer").innerText = `id: ${id}
         time: ${idStruct.date.toISOString()}
         singularity: ${idStruct.singularity}
-        process: ${idStruct.pid}
-        `;
+        process: ${idStruct.pid}`;
       }
     </script>
   </head>

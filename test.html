@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>ID generator</title>
-    <script src="./index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/kinoid@3.0.1"></script>
     <script>
       function clickHandler() {
         const { newId, decodeId } = kinoid();
@@ -12,8 +12,7 @@
         document.getElementById("id-viewer").innerText = `id: ${id}
         time: ${idStruct.date.toISOString()}
         singularity: ${idStruct.singularity}
-        process: ${idStruct.pid}
-        `;
+        process: ${idStruct.pid}`;
       }
     </script>
   </head>
