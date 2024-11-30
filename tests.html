@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>ID generator</title>
     <script src="./index.js"></script>
     <script>
       function clickHandler() {
-        document.getElementById("id-viewer").innerHTML = kinoid().newId();
+        const { newId, decodeId } = kinoid();
+        const id = newId();
+        const idStruct = decodeId(id);
+
+        document.getElementById("id-viewer").innerText = `id: ${id}
+        time: ${idStruct.date.toISOString()}
+        singularity: ${idStruct.singularity}
+        process: ${idStruct.pid}
+        `;
       }
     </script>
-
-    <title>Your App</title>
   </head>
 
   <body>

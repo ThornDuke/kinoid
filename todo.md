@@ -4,7 +4,7 @@
 
 - [ ] pubblicare sui servizi per il browser
 
-  - [ ] branch: **dev-cdn-publish**
+  - [x] branch: **dev-cdn-publish**
 
   - [ ] pubblicare su [unpkg](https://unpkg.com)
     - [ ] `browser` e `unpkg`
@@ -15,12 +15,12 @@
     - [ ] Testare sul browser
   - [ ] pubblicare su [jsdelivr](https://www.jsdelivr.com/)
 
-  - [ ] README
-    - [ ] aggiungere esempi di importazione con il browser
+  - [x] README
+    - [x] aggiungere esempi di importazione con il browser
       - <https://www.npmjs.com/package/@redlotus/uniqid#:~:text=//%20%2D%3E%204n5pxq24kriob12ogd%2C%204n5pxq24ksiob12ogl-,Usage%20in%20Browser,-Take%20advantage%20of>
       - `kinoid().newId()`
       - `kinoid().decodeId()`
-    - [ ] aggiungere due righe sul readme per le differenze tra `Node` e browser
+    - [x] aggiungere due righe sul readme per le differenze tra `Node` e browser
 
 ## done
 

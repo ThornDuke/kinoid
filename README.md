@@ -96,6 +96,38 @@ const newBook = {
 db.add(newBook);
 ```
 
+### In browser
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ID generator</title>
+    <script src="https://unpkg.com/kinoid"></script>
+    <script>
+      function clickHandler() {
+        const { newId, decodeId } = kinoid();
+        const id = newId();
+        const idStruct = decodeId(id);
+
+        document.getElementById("id-viewer").innerText = `id: ${id}
+        time: ${idStruct.date.toISOString()}
+        singularity: ${idStruct.singularity}
+        process: ${idStruct.pid}
+        `;
+      }
+    </script>
+  </head>
+
+  <body>
+    <div>
+      <button onclick="clickHandler()">get new ID</button>
+      <p id="id-viewer">here will be an ID</p>
+    </div>
+  </body>
+</html>
+```
+
 ## Contributing
 
 Contributions to this project are welcomed!

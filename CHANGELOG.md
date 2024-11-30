@@ -8,6 +8,19 @@
 https://gist.github.com/ThornDuke/64da76cd4a56b16492d5101691f6108f
 -->
 
+## [Unreleased]
+
+### Added
+
+- index.js: the code has been restructured so that it can run in both Node and the browser
+- README.md: added an example of how to use kinoid in the browser
+
+### Changed
+
+- index.js: changed some variables name
+- README.md: better style
+- package.json: The minimum version of Node now is 14
+
 ## [2.0.1] - 2024-11-24
 
 ### Changed
