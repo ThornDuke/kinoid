@@ -38,8 +38,5 @@
   },
   "preferGlobal": true,
   "main": "index.js",
-  "scripts": {},
-  "dependencies": {
-    "kinoid": "^2.0.1"
-  }
+  "scripts": {}
 }
