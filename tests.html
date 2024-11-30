@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="./index.js"></script>
+    <script>
+      function clickHandler() {
+        document.getElementById("id-viewer").innerHTML = kinoid().newId();
+      }
+    </script>
+
+    <title>Your App</title>
+  </head>
+
+  <body>
+    <div>
+      <button onclick="clickHandler()">get new ID</button>
+      <p id="id-viewer">here will be an ID</p>
+    </div>
+  </body>
+</html>

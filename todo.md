@@ -2,6 +2,26 @@
 
 ## next
 
+- [ ] pubblicare sui servizi per il browser
+
+  - [ ] branch: **dev-cdn-publish**
+
+  - [ ] pubblicare su [unpkg](https://unpkg.com)
+    - [ ] `browser` e `unpkg`
+      - <https://areknawo.com/whats-what-package-json-cheatsheet/#:~:text=g.%20window).-,unpkg,-Maybe%20it%E2%80%99s%20not>
+      - <https://docs.npmjs.com/cli/v10/configuring-npm/package-json#browser>
+      - <https://medium.com/@gaute.meek/how-to-publish-a-js-library-to-npm-and-cdn-9d0bf9b48e11>
+    - [ ] <https://kentcdodds.com/blog/unpkg-an-open-source-cdn-for-npm>
+    - [ ] Testare sul browser
+  - [ ] pubblicare su [jsdelivr](https://www.jsdelivr.com/)
+
+  - [ ] README
+    - [ ] aggiungere esempi di importazione con il browser
+      - <https://www.npmjs.com/package/@redlotus/uniqid#:~:text=//%20%2D%3E%204n5pxq24kriob12ogd%2C%204n5pxq24ksiob12ogl-,Usage%20in%20Browser,-Take%20advantage%20of>
+      - `kinoid().newId()`
+      - `kinoid().decodeId()`
+    - [ ] aggiungere due righe sul readme per le differenze tra `Node` e browser
+
 ## done
 
 - [x] README.md: passare a gemini anche i paragraphi non ancora guardati

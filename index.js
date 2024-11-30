@@ -10,7 +10,7 @@
 
 "use strict";
 
-module.exports = module.exports.default = function () {
+function kinoid() {
   let currTimeStamp = 0;
   let prevTimeStamp = 0;
   let singularity = 0;
@@ -141,4 +141,20 @@ module.exports = module.exports.default = function () {
   };
 
   return publicAPI;
-};
+}
+
+// Using 'new Function()' _this_ is always bound
+// to the global scope and the function returns
+// the correct result
+let isNode = new Function(`
+try {
+  return this === global;
+}
+catch (e) {
+  return false;
+}
+`);
+
+if (isNode()) {
+  module.exports = module.exports.default = kinoid;
+}

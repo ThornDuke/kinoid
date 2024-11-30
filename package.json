@@ -26,7 +26,7 @@
     "url": "https://github.com/ThornDuke/kinoid/issues"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=14"
   },
   "files": [
     "index.js",
@@ -38,5 +38,8 @@
   },
   "preferGlobal": true,
   "main": "index.js",
-  "scripts": {}
+  "scripts": {},
+  "dependencies": {
+    "kinoid": "^2.0.1"
+  }
 }

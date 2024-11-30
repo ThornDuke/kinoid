@@ -6,10 +6,6 @@ const os = require("node:os");
 const process = require("node:process");
 const kinoid = require("./index");
 
-// import os from "node:os";
-// import process from "node:process";
-// import kinoid from "kinoid";
-
 const { newId, decodeId } = kinoid();
 
 const repetitions = 1000000;
