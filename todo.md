@@ -2,12 +2,17 @@
 
 ## next
 
+- [ ] README.md
+  - [ ] aggiungere un commento con il secondo CDN
+  - [ ] aggiungere al CDN l'identificatore della versione
+- [ ] index.js
+  - [ ] aggiungere la stringa 'unique ID generator' da qualche parte nel commento iniziale
+  - [ ] il commento iniziale va riscritto in [jsdoc](https://jsdoc.app/tags-file)
+
 ## done
 
 - [x] pubblicare sui servizi per il browser
-
   - [x] branch: **dev-cdn-publish**
-
   - [x] pubblicare su [unpkg](https://unpkg.com)
     - [x] `browser` e `unpkg`
       - <https://areknawo.com/whats-what-package-json-cheatsheet/#:~:text=g.%20window).-,unpkg,-Maybe%20it%E2%80%99s%20not>
@@ -16,14 +21,12 @@
     - [x] <https://kentcdodds.com/blog/unpkg-an-open-source-cdn-for-npm>
     - [x] Testare sul browser
   - [x] pubblicare su [jsdelivr](https://www.jsdelivr.com/)
-
   - [x] README
     - [x] aggiungere esempi di importazione con il browser
       - <https://www.npmjs.com/package/@redlotus/uniqid#:~:text=//%20%2D%3E%204n5pxq24kriob12ogd%2C%204n5pxq24ksiob12ogl-,Usage%20in%20Browser,-Take%20advantage%20of>
       - `kinoid().newId()`
       - `kinoid().decodeId()`
     - [x] aggiungere due righe sul readme per le differenze tra `Node` e browser
-
 - [x] README.md: passare a gemini anche i paragraphi non ancora guardati
 - [x] refactor: {index.js} `lastTimeStamp` needs to change to `prevTimeStamp`
 - [x] README.md: paragrafo "Warning": rivederlo
@@ -74,9 +77,10 @@
 ## Releasing routine
 
 1. Update the version number into `<package.json>.version`
-2. Update CHANGELOG
-3. push `main` to repo
-4. create and push tag to repo
+2. Update the version number into the comment of `<index.js>`
+3. Update CHANGELOG
+4. push `main` to repo
+5. create and push tag to repo
 
 ### releasing
 

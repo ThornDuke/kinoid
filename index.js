@@ -1,12 +1,17 @@
-//
-// KINOID
-//
-// Generates a string made up of lowercase letters and numbers.
-// The algorithm generates each time a string different from all those
-// previously generated.
-//
-// Thorn Duke 2024
-//
+/**
+ * KINOID
+ *
+ * Unique IDs generator
+ *
+ * @file Generates a string made up of lowercase letters and numbers.
+ * The algorithm generates each time a string different from all
+ * those previously generated.
+ *
+ * @author Thorn Duke
+ * @version 3.0.1
+ * @license MIT
+ * @copyright Thorn Duke 2024
+ */
 
 "use strict";
 

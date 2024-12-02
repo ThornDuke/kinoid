@@ -104,13 +104,10 @@ db.add(newBook);
 <html lang="en">
   <head>
     <title>ID generator</title>
-    <script src="https://cdn.jsdelivr.net/npm/kinoid@3.0.1"></script>
-    <!--
-    <script src="https://unpkg.com/kinoid"></script>
-    -->
+    <script src="https://cdn.jsdelivr.net/npm/kinoid@3"></script>
     <script>
+      const { newId, decodeId } = kinoid();
       function clickHandler() {
-        const { newId, decodeId } = kinoid();
         const id = newId();
         const idStruct = decodeId(id);
 
