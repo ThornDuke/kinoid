@@ -2,15 +2,16 @@
 
 ## next
 
-- [ ] README.md
-  - [ ] aggiungere un commento con il secondo CDN
-  - [ ] aggiungere al CDN l'identificatore della versione
-- [ ] index.js
-  - [ ] aggiungere la stringa 'unique ID generator' da qualche parte nel commento iniziale
-  - [ ] il commento iniziale va riscritto in [jsdoc](https://jsdoc.app/tags-file)
-
 ## done
 
+- [x] riorganizzare il folder
+  - [x] aggiornare `.gitignore`?
+- [x] README.md
+  - [x] aggiungere un commento con il secondo CDN
+  - [x] aggiungere al CDN l'identificatore della versione
+- [x] index.js
+  - [x] aggiungere la stringa 'unique ID generator' da qualche parte nel commento iniziale
+  - [x] il commento iniziale va riscritto in [jsdoc](https://jsdoc.app/tags-file)
 - [x] pubblicare sui servizi per il browser
   - [x] branch: **dev-cdn-publish**
   - [x] pubblicare su [unpkg](https://unpkg.com)

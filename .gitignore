@@ -1,11 +1,6 @@
 # OS
 .DS_Store
 
-# This project
-package-lock.json
-project-notes.md
-tests.js
-
 # environment files
 .npmignore
 .nvmrc
@@ -25,5 +20,11 @@ node_modules
 
 # Output of 'npm pack'
 *.tgz
+
+# ############
+# Other
+# ###
+package-lock.json
+project-notes.md
 
 # End of file

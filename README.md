@@ -57,7 +57,7 @@ yarn add kinoid
 
 ## How to use
 
-### `import`
+### using `import`
 
 To use this feature, set `"type": "module"` in the `package.json` or use the `.mjs` extension.
 
@@ -82,7 +82,7 @@ console.log(decodeId(id));
 // }
 ```
 
-### `require`
+### using `require`
 
 ```javascript
 const { newId } = require("kinoid")();
@@ -97,7 +97,7 @@ const newBook = {
 db.add(newBook);
 ```
 
-### In browser
+### using the browser
 
 ```html
 <!DOCTYPE html>
@@ -105,6 +105,10 @@ db.add(newBook);
   <head>
     <title>ID generator</title>
     <script src="https://cdn.jsdelivr.net/npm/kinoid@3"></script>
+    <!--
+      you may also use
+      <script src="https://unpkg.com/kinoid@3"></script>
+    -->
     <script>
       const { newId, decodeId } = kinoid();
       function clickHandler() {

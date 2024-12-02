@@ -4,7 +4,7 @@
 
 const os = require("node:os");
 const process = require("node:process");
-const kinoid = require("./index");
+const kinoid = require("../index");
 
 // import os from "node:os";
 // import process from "node:process";
