@@ -44,5 +44,6 @@ node_modules/
 project-notes.*
 package-lock.json
 project-notes.md
+todo.md
 
 # End of file
