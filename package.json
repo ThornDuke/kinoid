@@ -1,7 +1,7 @@
 {
   "name": "kinoid",
   "version": "3.0.1",
-  "description": "Unique ID generator",
+  "description": "Unique IDs generator",
   "author": "Thorn Duke",
   "license": "MIT",
   "keywords": [
@@ -38,5 +38,13 @@
   },
   "preferGlobal": true,
   "main": "index.js",
-  "scripts": {}
+  "scripts": {
+    "format": "prettier . --write",
+    "stylecheck": "prettier . --check",
+    "benchmark": "node tests/benchmark.js",
+    "browse": "open tests/index.html"
+  },
+  "devDependencies": {
+    "prettier": "^3.4.1"
+  }
 }

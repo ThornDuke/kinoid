@@ -1,38 +1,39 @@
 /**
  * KINOID
  *
- * Unique IDs generator
+ * @fileoverview Unique IDs generator
  *
- * @fileoverview Generates a string made up of lowercase letters
- * and numbers. The algorithm generates each time a string
+ * @description
+ * Generates a string made up of lowercase letters and
+ * numbers. The algorithm generates each time a string
  * different from all those previously generated.
  *
  * @author Thorn Duke
- * @version 3.0.1
+ * @version 3
  * @license MIT
  * @copyright Thorn Duke 2024
  */
 
-"use strict";
+'use strict';
 
 function kinoid() {
   let currTimeStamp = 0;
   let prevTimeStamp = 0;
   let singularity = 0;
   const startTime = 1640434800000;
-  const slipPreventer = "1";
+  const slipPreventer = '1';
   const timeStampLength = 13;
   const singularityLength = 6;
   let pid = 0;
   const pidLength = 7;
   const errMsg =
-    "A critical technical limit has been exceeded, Kinoid can no longer produce unique IDs. Ask for the library update.";
+    'A critical technical limit has been exceeded, Kinoid can no longer produce unique IDs. Ask for the library update.';
 
   try {
-    if (typeof process !== "undefined" && process.pid) {
+    if (typeof process !== 'undefined' && process.pid) {
       pid = process.pid;
       if (pid.toString.length > pidLength) {
-        throw new RangeError(errMsg, { cause: "pid is out of range" });
+        throw new RangeError(errMsg, { cause: 'pid is out of range' });
       }
     }
   } catch (error) {
@@ -67,7 +68,7 @@ function kinoid() {
   function int36ToBigInt(bigintVal) {
     return bigintVal
       .toString()
-      .split("")
+      .split('')
       .reduce((result, char) => result * BigInt(36) + BigInt(parseInt(char, 36)), 0n);
   }
 
@@ -89,11 +90,11 @@ function kinoid() {
       }
 
       if (currTimeStamp.toString.length > timeStampLength) {
-        throw new RangeError(errMsg, { cause: "timeStamp is out of range" });
+        throw new RangeError(errMsg, { cause: 'timeStamp is out of range' });
       }
 
       if (singularity.toString.length > singularityLength) {
-        throw new RangeError(errMsg, { cause: "singularity is out of range" });
+        throw new RangeError(errMsg, { cause: 'singularity is out of range' });
       }
     } catch (error) {
       console.log(`${error.name}: ${error.message} [${error.cause}]`);

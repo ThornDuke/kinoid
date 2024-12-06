@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <title>ID generator</title>
@@ -9,7 +9,7 @@
         const id = newId();
         const idStruct = decodeId(id);
 
-        document.getElementById("id-viewer").innerText = `id: ${id}
+        document.getElementById('id-viewer').innerText = `id: ${id}
         time: ${idStruct.date.toISOString()}
         singularity: ${idStruct.singularity}
         process: ${idStruct.pid}`;
@@ -20,7 +20,7 @@
   <body>
     <div>
       <button onclick="clickHandler()">get new ID</button>
-      <p id="id-viewer">here will be an ID</p>
+      <p id="id-viewer" style="font-family: monospace">here will be an ID</p>
     </div>
   </body>
 </html>

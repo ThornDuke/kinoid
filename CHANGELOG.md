@@ -15,12 +15,18 @@ https://gist.github.com/ThornDuke/64da76cd4a56b16492d5101691f6108f
 - README.md: a warning about the "import" feature
 - README.md: the Node version badge
 - README.md: added a second example of using CDN
+- package.json: some scripts
 
 ### Changed
 
 - index.js: better coding style
 - index.js: the documentation was entirely written in jsdoc
 - tests/: a folder specifically intended for test files
+- README.md: fully restructured
+
+### Removed
+
+- todo.md: purged from the repo
 
 ## [3.0.1] - 2024-11-30
 

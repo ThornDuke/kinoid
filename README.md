@@ -38,9 +38,9 @@ returns an object containing, among other things, the date on which that ID was 
 **IDs are not passwords**. Kinoid ensures that each generated ID is _unique_, but not _necessarily
 unpredictable_.
 
-This depends on a limit that affects _all_ libraries: an algorithm that produces unpredictable
-strings cannot guarantee their uniqueness and, vice versa, an algorithm that produces unique strings
-cannot guarantee their unpredictability.
+This depends on a logical limit that affects _all_ libraries: an algorithm that produces
+unpredictable strings cannot guarantee their uniqueness and, vice versa, an algorithm that produces
+unique strings cannot guarantee their unpredictability.
 
 If you need a library for creating cryptographically secure passwords, consider
 [crypto-pwd-generator](https://www.npmjs.com/package/crypto-pwd-generator)
@@ -57,12 +57,27 @@ yarn add kinoid
 
 ## How to use
 
+### using `require`
+
+```javascript
+const { newId } = require('kinoid')();
+
+const newBook = {
+  title: 'Love at the time of the inquisition',
+  author: 'John White',
+  publisher: 'Hypercubes',
+  id: newId(),
+};
+
+db.add(newBook);
+```
+
 ### using `import`
 
 To use this feature, set `"type": "module"` in the `package.json` or use the `.mjs` extension.
 
 ```javascript
-import kinoid from "kinoid";
+import kinoid from 'kinoid';
 const { newId, decodeId } = kinoid();
 
 const id = newId();
@@ -80,21 +95,6 @@ console.log(decodeId(id));
 //   singularity: 1144,
 //   pid: 5438
 // }
-```
-
-### using `require`
-
-```javascript
-const { newId } = require("kinoid")();
-
-const newBook = {
-  title: "Love at the time of the inquisition",
-  author: "John White",
-  publisher: "Hypercubes",
-  id: newId(),
-};
-
-db.add(newBook);
 ```
 
 ### using the browser
@@ -115,10 +115,10 @@ db.add(newBook);
         const id = newId();
         const idStruct = decodeId(id);
 
-        document.getElementById("id-viewer").innerText = `id: ${id}
+        document.getElementById('id-viewer').innerText = `id: ${id}
         time: ${idStruct.date.toISOString()}
         singularity: ${idStruct.singularity}
-        process: ${idStruct.pid}`;
+        process id: ${idStruct.pid}`;
       }
     </script>
   </head>
@@ -126,7 +126,7 @@ db.add(newBook);
   <body>
     <div>
       <button onclick="clickHandler()">get new ID</button>
-      <p id="id-viewer">here will be an ID</p>
+      <p id="id-viewer" style="font-family: monospace">here will be an ID</p>
     </div>
   </body>
 </html>

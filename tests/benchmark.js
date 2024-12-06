@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-"use strict";
+'use strict';
 
-const os = require("node:os");
-const process = require("node:process");
-const kinoid = require("../index");
+const os = require('node:os');
+const process = require('node:process');
+const kinoid = require('../index');
 
 // import os from "node:os";
 // import process from "node:process";
