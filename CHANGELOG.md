@@ -8,6 +8,21 @@
 https://gist.github.com/ThornDuke/64da76cd4a56b16492d5101691f6108f
 -->
 
+## [Unreleased]
+
+### Changed
+
+- index.js: some strings now have a better language style
+- README.md: some strings now have a better language style
+
+### Added
+
+- index.js: a lot of documentation
+
+### Removed
+
+- package.json: the `bin` field is not necessary, as `index.js` is not an executable file.
+
 ## [3.0.2] - 2024-12-06
 
 ### Added

@@ -33,9 +33,6 @@
     "LICENSE",
     "README.md"
   ],
-  "bin": {
-    "kinoid": "index.js"
-  },
   "preferGlobal": true,
   "main": "index.js",
   "scripts": {

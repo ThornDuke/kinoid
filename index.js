@@ -1,12 +1,23 @@
 /**
  * KINOID
  *
- * @fileoverview Unique IDs generator
+ * @overview Unique IDs generator
  *
  * @description
- * Generates a string made up of lowercase letters and
- * numbers. The algorithm generates each time a string
- * different from all those previously generated.
+ * Kinoid is a library that creates unique identifiers (IDs).
+ * Each ID is unique because it's different from all the others
+ * generated before or at the same time on the same machine.
+ *
+ * The parameters used to build these IDs are the current date
+ * and time, the ID of the process running the program, and a
+ * sequential number (the 'singularity factor') that ensures
+ * the ID is unique even on very fast machines.
+ *
+ * The library provides two main functions:
+ * - `newId()`: generates a new ID as a string.
+ * - `decodeId()`: takes an existing ID and returns an object
+ *   containing the components used to create that ID: date and
+ *   time, singularity factor, and process ID.
  *
  * @author Thorn Duke
  * @version 3
@@ -16,6 +27,23 @@
 
 'use strict';
 
+/**
+ * Library for the generation and decoding of unique identifiers
+ *
+ * @returns {{newId: function, decodeId: function }}
+ *
+ * @example
+ * const { newId, decodeId } = kinoid();
+ * const id = newId();
+ * // id => 'cohb4z87mvoyf1zjy'
+ * const idStruct = decodeId(id)
+ * // idStruct => {
+ * //   id: 'cohb4z87mvoyf1zjy',
+ * //   date: 2024-11-19T16:52:19.962Z,
+ * //   singularity: 1144,
+ * //   pid: 5438
+ * // }
+ */
 function kinoid() {
   let currTimeStamp = 0;
   let prevTimeStamp = 0;
@@ -27,7 +55,7 @@ function kinoid() {
   let pid = 0;
   const pidLength = 7;
   const errMsg =
-    'A critical technical limit has been exceeded, Kinoid can no longer produce unique IDs. Ask for the library update.';
+    'A critical technical limit has been reached. Kinoid is unable to generate unique IDs. Please ask the system administrator for a library update.';
 
   try {
     if (typeof process !== 'undefined' && process.pid) {
