@@ -87,21 +87,27 @@ function kinoid() {
   }
 
   /**
-   * Takes a string representing a base 36 number and
-   * returns the same number in base 10 as a bigInt
+   * Takes a string representing an _ID_ (a base36 number 17 characters
+   * long) as input and returns a BigInt representing the same number in
+   * base 10. It raises an error if the input string is not a valid ID.
    *
    * @param {string} bigintVal
    * @returns {BigInt}
    */
   function int36ToBigInt(bigintVal) {
-    return bigintVal
-      .toString()
-      .split('')
-      .reduce((result, char) => result * BigInt(36) + BigInt(parseInt(char, 36)), 0n);
+    const idRe = new RegExp('^[a-z0-9]{17}$');
+    if (idRe.test(bigintVal)) {
+      return bigintVal
+        .toString()
+        .split('')
+        .reduce((result, char) => result * BigInt(36) + BigInt(parseInt(char, 36)), 0n);
+    } else {
+      throw new Error(`The string ${bigintVal} is not a valid ID`);
+    }
   }
 
   /**
-   * Function that is invoked every time an ID is generated. Calculate
+   * Function that is invoked every time an ID is generated. Calculates
    * the timestamp value by assigning it the number of milliseconds
    * that have passed since the `startTime` epoch. The value of `singularity`
    * is incremented if the current timestamp value is the same as the
@@ -159,18 +165,23 @@ function kinoid() {
      *  an object containing the constituent elements of the ID
      */
     decodeId: function (id) {
-      const decIdStr = int36ToBigInt(id).toString().substring(slipPreventer.length);
-      const dateStart = 0;
-      const dateEnd = dateStart + timeStampLength;
-      const singularityStart = dateStart + timeStampLength;
-      const singularityEnd = dateStart + timeStampLength + singularityLength;
-      const pidStart = dateStart + timeStampLength + singularityLength;
-      return {
-        id,
-        date: new Date(Number(decIdStr.slice(dateStart, dateEnd)) + startTime),
-        singularity: Number(decIdStr.slice(singularityStart, singularityEnd)),
-        pid: Number(decIdStr.slice(pidStart)),
-      };
+      try {
+        const decIdStr = int36ToBigInt(id).toString().substring(slipPreventer.length);
+        const dateStart = 0;
+        const dateEnd = dateStart + timeStampLength;
+        const singularityStart = dateStart + timeStampLength;
+        const singularityEnd = dateStart + timeStampLength + singularityLength;
+        const pidStart = dateStart + timeStampLength + singularityLength;
+        return {
+          id,
+          date: new Date(Number(decIdStr.slice(dateStart, dateEnd)) + startTime),
+          singularity: Number(decIdStr.slice(singularityStart, singularityEnd)),
+          pid: Number(decIdStr.slice(pidStart)),
+        };
+      } catch (error) {
+        console.error(error);
+        return { error: error.message };
+      }
     },
   };
 
