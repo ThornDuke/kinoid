@@ -38,8 +38,8 @@ console.log(`
 **
 ** generate and decode one ID
 **   ID           : ${singleId}
-**   id length    : ${singleId.length} chars
-**   computed on  : ${idStructure.date.toISOString()}
+**   length       : ${singleId.length} chars
+**   generated on : ${idStructure.date.toISOString()}
 **   singularity  : ${idStructure.singularity}
 **   process id   : ${idStructure.pid}
 **

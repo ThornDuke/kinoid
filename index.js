@@ -45,6 +45,14 @@
  * // }
  */
 function kinoid() {
+  /**
+   * It's the format for an ID: a 17-character
+   * string made up of lowercase letters and numbers
+   * @constant
+   * @type {RegExp}
+   */
+  const idRe = new RegExp('^[a-z0-9]{17}$');
+
   let currTimeStamp = 0;
   let prevTimeStamp = 0;
   let singularity = 0;
@@ -87,6 +95,17 @@ function kinoid() {
   }
 
   /**
+   * Takes a string as input and checks if it has the structure of
+   * a valid ID
+   *
+   * @param {string} id
+   * @returns boolean
+   */
+  function hasIdStructure(id) {
+    return idRe.test(id);
+  }
+
+  /**
    * Takes a string representing an _ID_ (a base36 number 17 characters
    * long) as input and returns a BigInt representing the same number in
    * base 10. It raises an error if the input string is not a valid ID.
@@ -95,15 +114,10 @@ function kinoid() {
    * @returns {BigInt}
    */
   function int36ToBigInt(bigintVal) {
-    const idRe = new RegExp('^[a-z0-9]{17}$');
-    if (idRe.test(bigintVal)) {
-      return bigintVal
-        .toString()
-        .split('')
-        .reduce((result, char) => result * BigInt(36) + BigInt(parseInt(char, 36)), 0n);
-    } else {
-      throw new Error(`The string ${bigintVal} is not a valid ID`);
-    }
+    return bigintVal
+      .toString()
+      .split('')
+      .reduce((result, char) => result * BigInt(36) + BigInt(parseInt(char, 36)), 0n);
   }
 
   /**
@@ -165,22 +179,26 @@ function kinoid() {
      *  an object containing the constituent elements of the ID
      */
     decodeId: function (id) {
-      try {
-        const decIdStr = int36ToBigInt(id).toString().substring(slipPreventer.length);
-        const dateStart = 0;
-        const dateEnd = dateStart + timeStampLength;
-        const singularityStart = dateStart + timeStampLength;
-        const singularityEnd = dateStart + timeStampLength + singularityLength;
-        const pidStart = dateStart + timeStampLength + singularityLength;
+      const decIdStr = int36ToBigInt(id).toString().substring(slipPreventer.length);
+      const dateStart = 0;
+      const dateEnd = dateStart + timeStampLength;
+      const singularityStart = dateStart + timeStampLength;
+      const singularityEnd = dateStart + timeStampLength + singularityLength;
+      const pidStart = dateStart + timeStampLength + singularityLength;
+
+      const idDate = new Date(Number(decIdStr.slice(dateStart, dateEnd)) + startTime);
+      const idSingularity = Number(decIdStr.slice(singularityStart, singularityEnd));
+      const idPid = Number(decIdStr.slice(pidStart));
+
+      if (hasIdStructure(id) && idDate.valueOf() >= startTime && idSingularity >= 0 && idPid >= 0) {
         return {
           id,
-          date: new Date(Number(decIdStr.slice(dateStart, dateEnd)) + startTime),
-          singularity: Number(decIdStr.slice(singularityStart, singularityEnd)),
-          pid: Number(decIdStr.slice(pidStart)),
+          date: idDate,
+          singularity: idSingularity,
+          pid: idPid,
         };
-      } catch (error) {
-        console.error(error);
-        return { error: error.message };
+      } else {
+        return { error: `the string ${id} is not a valid ID` };
       }
     },
   };
