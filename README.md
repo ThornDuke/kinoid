@@ -62,7 +62,7 @@ yarn add kinoid
 const { newId } = require('kinoid')();
 
 const newBook = {
-  title: 'Love at the time of the inquisition',
+  title: 'The absence of non-existent unthoughts',
   author: 'John White',
   publisher: 'Hypercubes',
   id: newId(),
@@ -98,7 +98,7 @@ console.log(decodeId(id));
 
 ### using the browser
 
-[![Static Badge](https://img.shields.io/badge/edit%20in%20CodeSandbox-darkgreen?style=for-the-badge&logo=codesandbox&logoColor=black&labelColor=%23e3ff73)](https://codesandbox.io/p/sandbox/7f6sdn)
+[![Edit in SandBox](https://img.shields.io/badge/edit%20in%20CodeSandbox-darkgreen?style=for-the-badge&logo=codesandbox&logoColor=black&labelColor=%23e3ff73)](https://codesandbox.io/p/sandbox/7f6sdn)
 
 ```html
 <!DOCTYPE html>

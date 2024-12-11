@@ -165,10 +165,9 @@ function kinoid() {
       const paddedSingularity = zeroPadded(singularity, singularityLength);
       const paddedTimeStamp = zeroPadded(currTimeStamp, timeStampLength);
       const paddedPid = zeroPadded(pid, pidLength);
+      const idMask = `${slipPreventer}${paddedTimeStamp}${paddedSingularity}${paddedPid}`;
 
-      return BigInt(`${slipPreventer}${paddedTimeStamp}${paddedSingularity}${paddedPid}`).toString(
-        36
-      );
+      return BigInt(idMask).toString(36);
     },
 
     /**
