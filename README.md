@@ -98,7 +98,7 @@ console.log(decodeId(id));
 
 ### using the browser
 
-[![Static Badge](https://img.shields.io/badge/edit%20in%20CodeSandbox-darkgreen?style=for-the-badge&logo=codesandbox&logoColor=black&labelColor=%23e3ff73)](https://codesandbox.io/p/sandbox/kinoid-example-c55v8c)
+[![Static Badge](https://img.shields.io/badge/edit%20in%20CodeSandbox-darkgreen?style=for-the-badge&logo=codesandbox&logoColor=black&labelColor=%23e3ff73)](https://codesandbox.io/p/sandbox/7f6sdn)
 
 ```html
 <!DOCTYPE html>
