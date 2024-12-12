@@ -8,6 +8,7 @@
 
 [![NPM Version](https://img.shields.io/npm/v/kinoid?style=plastic&logo=npm&label=version)](https://www.npmjs.com/package/kinoid)
 [![NPM Downloads](https://img.shields.io/npm/d18m/kinoid?style=plastic&logo=npm)](https://www.npmjs.com/package/kinoid)
+![jsDelivr hits (npm)](https://img.shields.io/jsdelivr/npm/hy/kinoid?style=plastic&logo=jsdelivr&logoColor=white&color=orange)
 [![NPM License](https://img.shields.io/npm/l/kinoid?style=plastic&logo=MIT)](https://opensource.org/license/mit)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/kinoid?style=plastic&logo=webpack)
 

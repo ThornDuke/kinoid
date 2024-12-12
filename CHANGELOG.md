@@ -23,6 +23,7 @@ https://gist.github.com/ThornDuke/64da76cd4a56b16492d5101691f6108f
 - index.js {idRe}: the format for an ID
 - index.js {hasIdStructure()}
 - README.md: link to a sandbox
+- README.md: jsdelivr badge
 
 ### Removed
 
