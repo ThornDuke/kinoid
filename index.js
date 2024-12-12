@@ -30,7 +30,7 @@
 /**
  * Library for the generation and decoding of unique identifiers
  *
- * @returns {{newId: function, decodeId: function }}
+ * @returns {{ newId: function, decodeId: function }}
  *
  * @example
  * const { newId, decodeId } = kinoid();
@@ -85,10 +85,10 @@ function kinoid() {
    *
    * @param {number|string} val the number that needs to be filled on the left
    * @param {number} length the length of the resulting string once the
-   *  current `val` has been padded. If the value is less than or equal
-   *  to `val.length`, then `val` is returned as-is.
+   *   current `val` has been padded. If the value is less than or equal
+   *   to `val.length`, then `val` is returned as-is.
    * @returns {string} a string of the specified `length` with zeroes
-   *  applied from the start.
+   *   applied from the start.
    */
   function zeroPadded(val, length) {
     return val.toString().padStart(length, 0);
@@ -174,8 +174,11 @@ function kinoid() {
      * Extracts from an ID the elements with which it was generated.
      *
      * @param {string} id a valid ID
-     * @returns {{id: string, date: Date, singularity: number, pid: number}}
-     *  an object containing the constituent elements of the ID
+     * @returns {{ id: string, date: Date, singularity: number, pid: number }|{ error: string }}
+     *   if the ID is a valid ID it returns an object containing its
+     *   constituent elements, otherwise it returns an object
+     *   containing an error message. For the definition of
+     *   '_valid ID_' see {@link idRe}
      */
     decodeId: function (id) {
       const decIdStr = int36ToBigInt(id).toString().substring(slipPreventer.length);
