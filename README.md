@@ -1,14 +1,8 @@
 # kinoid
 
-<!--
-![npms.io](https://img.shields.io/npms-io/maintenance-score/kinoid?style=plastic&logo=npm&label=maintenance)
-![npms.io](https://img.shields.io/npms-io/quality-score/kinoid?style=plastic&logo=npm&label=quality)
-![npms.io](https://img.shields.io/npms-io/popularity-score/kinoid?style=plastic&logo=npm&label=popularity)
--->
-
 [![NPM Version](https://img.shields.io/npm/v/kinoid?style=plastic&logo=npm&label=version)](https://www.npmjs.com/package/kinoid)
 [![NPM Downloads](https://img.shields.io/npm/d18m/kinoid?style=plastic&logo=npm)](https://www.npmjs.com/package/kinoid)
-![jsDelivr hits (npm)](https://img.shields.io/jsdelivr/npm/hy/kinoid?style=plastic&logo=jsdelivr&logoColor=white&color=orange)
+[![jsDelivr hits (npm)](https://img.shields.io/jsdelivr/npm/hy/kinoid?style=plastic&logo=jsdelivr&logoColor=white&color=orange)](https://www.jsdelivr.com/package/npm/kinoid)
 [![NPM License](https://img.shields.io/npm/l/kinoid?style=plastic&logo=MIT)](https://opensource.org/license/mit)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/kinoid?style=plastic&logo=webpack)
 
