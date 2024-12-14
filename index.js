@@ -192,6 +192,7 @@ function kinoid() {
       const idSingularity = Number(decIdStr.slice(singularityStart, singularityEnd));
       const idPid = Number(decIdStr.slice(pidStart));
 
+      // VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
       if (hasIdStructure(id) && idDate.valueOf() >= startTime && idSingularity >= 0 && idPid >= 0) {
         return {
           id,
@@ -202,6 +203,7 @@ function kinoid() {
       } else {
         return { error: `the string ${id} is not a valid ID` };
       }
+      // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     },
   };
 

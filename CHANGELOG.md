@@ -8,6 +8,18 @@
 https://gist.github.com/ThornDuke/64da76cd4a56b16492d5101691f6108f
 -->
 
+## [Unreleased]
+
+### Changed
+
+- README.md: a better button label
+- index.js: redefined bigint zero: some web services do not recognize the `0n` syntax
+
+### Added
+
+- README.md: a new badge: unpkg
+- package.json: new tags: `cli` and `backend`
+
 ## [3.0.3] - 2024-12-13
 
 ### Changed
