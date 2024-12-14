@@ -1,10 +1,11 @@
 # kinoid
 
-[![NPM Version](https://img.shields.io/npm/v/kinoid?style=plastic&logo=npm&label=version)](https://www.npmjs.com/package/kinoid)
-[![NPM Downloads](https://img.shields.io/npm/d18m/kinoid?style=plastic&logo=npm)](https://www.npmjs.com/package/kinoid)
-[![jsDelivr hits (npm)](https://img.shields.io/jsdelivr/npm/hy/kinoid?style=plastic&logo=jsdelivr&logoColor=white&color=orange)](https://www.jsdelivr.com/package/npm/kinoid)
-[![NPM License](https://img.shields.io/npm/l/kinoid?style=plastic&logo=MIT)](https://opensource.org/license/mit)
-![npm bundle size](https://img.shields.io/bundlephobia/min/kinoid?style=plastic&logo=webpack)
+[![NPM Version](https://img.shields.io/npm/v/kinoid?style=plastic&logo=npm&label=version&labelColor=black)](https://www.npmjs.com/package/kinoid)
+[![NPM Downloads](https://img.shields.io/npm/d18m/kinoid?style=plastic&logo=npm&labelColor=black)](https://www.npmjs.com/package/kinoid)
+[![jsDelivr hits (npm)](https://img.shields.io/jsdelivr/npm/hy/kinoid?style=plastic&logo=jsdelivr&logoColor=white&color=orange&labelColor=black)](https://www.jsdelivr.com/package/npm/kinoid)
+[![Static Badge](https://img.shields.io/badge/powered-111000?style=plastic&logo=unpkg&label=unpkg&labelColor=black&color=FD0)](https://unpkg.com/browse/kinoid@3/)
+[![NPM License](https://custom-icon-badges.demolab.com/npm/l/kinoid?style=plastic&logo=law&labelColor=black)](https://opensource.org/license/mit)
+![npm bundle size](https://img.shields.io/bundlephobia/min/kinoid?style=plastic&logo=webpack&labelColor=black)
 
 A JavaScript library for generating unique IDs.
 
