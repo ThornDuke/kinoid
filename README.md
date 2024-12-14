@@ -94,7 +94,7 @@ console.log(decodeId(id));
 
 ### using the browser
 
-[![Edit in SandBox](https://img.shields.io/badge/try%20it%20in%20CodeSandbox-darkgreen?style=for-the-badge&logo=codesandbox&logoColor=black&labelColor=%23ff7396)](https://codesandbox.io/p/sandbox/7f6sdn)
+[![Open in SandBox](https://img.shields.io/badge/open%20in%20CodeSandbox-darkgreen?style=for-the-badge&logo=codesandbox&logoColor=black&labelColor=%23e3ff73)](https://codesandbox.io/p/sandbox/7f6sdn)
 
 ```html
 <!DOCTYPE html>
