@@ -117,7 +117,7 @@ function kinoid() {
     return bigintVal
       .toString()
       .split('')
-      .reduce((result, char) => result * BigInt(36) + BigInt(parseInt(char, 36)), 0n);
+      .reduce((result, char) => result * BigInt(36) + BigInt(parseInt(char, 36)), BigInt(0));
   }
 
   /**
