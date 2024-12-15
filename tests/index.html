@@ -9,18 +9,21 @@
         const id = newId();
         const idStruct = decodeId(id);
 
-        document.getElementById('id-viewer').innerText = `id: ${id}
-        time: ${idStruct.date.toISOString()}
-        singularity: ${idStruct.singularity}
-        process: ${idStruct.pid}`;
+        document.getElementById('id-viewer').innerHTML = `
+<pre>
+ID:          <b>${id}</b>
+time:        ${idStruct.date.toISOString()}
+singularity: ${idStruct.singularity}
+process:     ${idStruct.pid}
+</pre>`;
       }
     </script>
   </head>
 
   <body>
-    <div>
-      <button onclick="clickHandler()">get new ID</button>
-      <p id="id-viewer" style="font-family: monospace">here will be an ID</p>
+    <button onclick="clickHandler()">get new ID</button>
+    <div id="id-viewer" style="font-family: monospace">
+      <p>here will be an ID</p>
     </div>
   </body>
 </html>

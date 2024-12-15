@@ -86,6 +86,7 @@ console.log(`The id '${id}' was generated on ${decodeId(id).date.toDateString()}
 console.log(decodeId(id));
 // {
 //   id: 'cohb4z87mvoyf1zjy',
+//   validId: true,
 //   date: 2024-11-19T16:52:19.962Z,
 //   singularity: 1144,
 //   pid: 5438
@@ -97,14 +98,14 @@ console.log(decodeId(id));
 [![Open in SandBox](https://img.shields.io/badge/open%20in%20CodeSandbox-darkgreen?style=for-the-badge&logo=codesandbox&logoColor=black&labelColor=%23e3ff73)](https://codesandbox.io/p/sandbox/7f6sdn)
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <title>ID generator</title>
     <script src="https://cdn.jsdelivr.net/npm/kinoid@3"></script>
     <!--
-      you may also use
-      <script src="https://unpkg.com/kinoid@3"></script>
+    you may also use
+    <script src="https://unpkg.com/kinoid@3"></script>
     -->
     <script>
       const { newId, decodeId } = kinoid();
@@ -112,18 +113,21 @@ console.log(decodeId(id));
         const id = newId();
         const idStruct = decodeId(id);
 
-        document.getElementById('id-viewer').innerText = `id: ${id}
-        time: ${idStruct.date.toISOString()}
-        singularity: ${idStruct.singularity}
-        process id: ${idStruct.pid}`;
+        document.getElementById('id-viewer').innerHTML = `
+<pre>
+ID:          <b>${id}</b>
+time:        ${idStruct.date.toISOString()}
+singularity: ${idStruct.singularity}
+process:     ${idStruct.pid}
+</pre>`;
       }
     </script>
   </head>
 
   <body>
-    <div>
-      <button onclick="clickHandler()">get new ID</button>
-      <p id="id-viewer" style="font-family: monospace">here will be an ID</p>
+    <button onclick="clickHandler()">get new ID</button>
+    <div id="id-viewer" style="font-family: monospace">
+      <p>here will be an ID</p>
     </div>
   </body>
 </html>

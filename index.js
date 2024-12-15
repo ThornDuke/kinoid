@@ -39,6 +39,7 @@
  * const idStruct = decodeId(id)
  * // idStruct => {
  * //   id: 'cohb4z87mvoyf1zjy',
+ * //   validId: true,
  * //   date: 2024-11-19T16:52:19.962Z,
  * //   singularity: 1144,
  * //   pid: 5438
@@ -174,11 +175,16 @@ function kinoid() {
      * Extracts from an ID the elements with which it was generated.
      *
      * @param {string} id a valid ID
-     * @returns {{ id: string, date: Date, singularity: number, pid: number }|{ error: string }}
-     *   if the ID is a valid ID it returns an object containing its
-     *   constituent elements, otherwise it returns an object
-     *   containing an error message. For the definition of
-     *   '_valid ID_' see {@link idRe}
+     * @returns {{
+     *  id: string,
+     *  validId: boolean,
+     *  date: Date | null,
+     *  singularity: number | null,
+     *  pid: number | null
+     * }} if the ID is a valid ID it returns an object containing its
+     * constituent elements, otherwise the "validId" field is set to
+     * "false" and the other fields to "null". For the definition of
+     * '_valid ID_' see {@link idRe}
      */
     decodeId: function (id) {
       const decIdStr = int36ToBigInt(id).toString().substring(slipPreventer.length);
@@ -191,19 +197,16 @@ function kinoid() {
       const idDate = new Date(Number(decIdStr.slice(dateStart, dateEnd)) + startTime);
       const idSingularity = Number(decIdStr.slice(singularityStart, singularityEnd));
       const idPid = Number(decIdStr.slice(pidStart));
+      const isValidId =
+        hasIdStructure(id) && idDate.valueOf() >= startTime && idSingularity >= 0 && idPid >= 0;
 
-      // VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
-      if (hasIdStructure(id) && idDate.valueOf() >= startTime && idSingularity >= 0 && idPid >= 0) {
-        return {
-          id,
-          date: idDate,
-          singularity: idSingularity,
-          pid: idPid,
-        };
-      } else {
-        return { error: `the string ${id} is not a valid ID` };
-      }
-      // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      return {
+        id,
+        validId: isValidId,
+        date: isValidId ? idDate : null,
+        singularity: isValidId ? idSingularity : null,
+        pid: isValidId ? idPid : null,
+      };
     },
   };
 

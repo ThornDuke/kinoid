@@ -12,8 +12,12 @@ https://gist.github.com/ThornDuke/64da76cd4a56b16492d5101691f6108f
 
 ### Changed
 
-- README.md: a better button label
 - index.js: redefined bigint zero: some web services do not recognize the `0n` syntax
+- index.js: deleted the object `{error: ...}`; added a `validId` field into the return of
+  `decodeId()`
+- README.md: a better button label
+- README.md: simplified the HTML example
+- README.md: updated with the new `decodeId()` return object
 
 ### Added
 
