@@ -1,7 +1,7 @@
 {
   "name": "kinoid",
   "version": "3.0.3",
-  "description": "Unique IDs generator",
+  "description": "An ultra-light, url-friendly unique IDs generator. For node and browsers.",
   "author": "Thorn Duke",
   "license": "MIT",
   "keywords": [

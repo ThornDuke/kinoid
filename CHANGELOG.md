@@ -18,6 +18,8 @@ https://gist.github.com/ThornDuke/64da76cd4a56b16492d5101691f6108f
 - README.md: a better button label
 - README.md: simplified the HTML example
 - README.md: updated with the new `decodeId()` return object
+- README.md: badges correctly link to external services
+- package.json: description optimized for some services
 
 ### Added
 

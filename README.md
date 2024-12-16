@@ -87,7 +87,6 @@ console.log(`The id '${id}' was generated on ${decodeId(id).date.toDateString()}
 console.log(decodeId(id));
 // {
 //   id: 'cohb4z87mvoyf1zjy',
-//   validId: true,
 //   date: 2024-11-19T16:52:19.962Z,
 //   singularity: 1144,
 //   pid: 5438
@@ -96,7 +95,7 @@ console.log(decodeId(id));
 
 ### using the browser
 
-[![Open in SandBox](https://img.shields.io/badge/open%20in%20CodeSandbox-darkgreen?style=for-the-badge&logo=codesandbox&logoColor=black&labelColor=%23e3ff73)](https://codesandbox.io/p/sandbox/7f6sdn)
+<a href="https://codesandbox.io/p/sandbox/7f6sdn" target="_blank">![Open in SandBox](https://img.shields.io/badge/open%20in%20CodeSandbox-darkgreen?style=for-the-badge&logo=codesandbox&logoColor=black&labelColor=%23e3ff73)</a>
 
 ```html
 <!doctype html>

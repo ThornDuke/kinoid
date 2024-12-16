@@ -39,7 +39,6 @@
  * const idStruct = decodeId(id)
  * // idStruct => {
  * //   id: 'cohb4z87mvoyf1zjy',
- * //   validId: true,
  * //   date: 2024-11-19T16:52:19.962Z,
  * //   singularity: 1144,
  * //   pid: 5438
@@ -177,14 +176,16 @@ function kinoid() {
      * @param {string} id a valid ID
      * @returns {{
      *  id: string,
-     *  validId: boolean,
-     *  date: Date | null,
-     *  singularity: number | null,
-     *  pid: number | null
+     *  date: Date,
+     *  singularity: number,
+     *  pid: number
+     * } | {
+     *  id: string,
+     *  error: string
      * }} if the ID is a valid ID it returns an object containing its
-     * constituent elements, otherwise the "validId" field is set to
-     * "false" and the other fields to "null". For the definition of
-     * '_valid ID_' see {@link idRe}
+     * constituent elements, otherwise it returns an object containing
+     * an error message. For the definition of '_valid ID_' see
+     * {@link idRe}
      */
     decodeId: function (id) {
       const decIdStr = int36ToBigInt(id).toString().substring(slipPreventer.length);
@@ -200,12 +201,18 @@ function kinoid() {
       const isValidId =
         hasIdStructure(id) && idDate.valueOf() >= startTime && idSingularity >= 0 && idPid >= 0;
 
+      if (!isValidId) {
+        return {
+          id,
+          error: `the string ${id} is not a valid ID`,
+        };
+      }
+
       return {
         id,
-        validId: isValidId,
-        date: isValidId ? idDate : null,
-        singularity: isValidId ? idSingularity : null,
-        pid: isValidId ? idPid : null,
+        date: idDate,
+        singularity: idSingularity,
+        pid: idPid,
       };
     },
   };
