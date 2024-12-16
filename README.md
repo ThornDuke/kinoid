@@ -5,7 +5,7 @@
 <a href="https://www.jsdelivr.com/package/npm/kinoid" target="_blank">![jsDelivr hits (npm)](https://img.shields.io/jsdelivr/npm/hy/kinoid?style=plastic&logo=jsdelivr&logoColor=white&color=orange&labelColor=black)</a>
 <a href="https://unpkg.com/browse/kinoid@3/" target="_blank">![Static Badge](https://img.shields.io/badge/powered-111000?style=plastic&logo=unpkg&label=unpkg&labelColor=black&color=FD0)</a>
 <a href="https://opensource.org/license/mit" target="_blank">![NPM License](https://custom-icon-badges.demolab.com/npm/l/kinoid?style=plastic&logo=law&labelColor=black)</a>
-![npm bundle size](https://img.shields.io/bundlephobia/min/kinoid?style=plastic&logo=webpack&labelColor=black)
+<a href="https://bundlephobia.com/package/kinoid" target="_blank">![npm bundle size](https://img.shields.io/bundlephobia/min/kinoid?style=plastic&logo=webpack&logoColor=white&labelColor=black)</a>
 
 A JavaScript library for generating unique IDs.
 
@@ -30,7 +30,8 @@ returns an object containing, among other things, the date on which that ID was 
 
 ### Warning
 
-**IDs are not passwords**. Kinoid ensures that each generated ID is _unique_, but not _necessarily
+<span style="color: white; background-color: red; padding: .125em .5em .125em .5em">**IDs are not
+passwords**</span> Kinoid ensures that each generated ID is _unique_, but not _necessarily
 unpredictable_.
 
 This depends on a logical limit that affects _all_ libraries: an algorithm that produces
