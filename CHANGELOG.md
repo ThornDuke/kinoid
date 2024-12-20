@@ -20,7 +20,7 @@ https://gist.github.com/ThornDuke/64da76cd4a56b16492d5101691f6108f
 - README.md: updated with the new `decodeId()` return object
 - README.md: badges correctly link to external services
 - README.md: a deeper example of `decodeId()`
-- README.md: updated the sandbox
+- README.md: updated the sandbox with the actual example
 - package.json: description optimized for some services
 
 ### Added
