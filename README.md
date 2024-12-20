@@ -70,8 +70,6 @@ db.add(newBook);
 
 ### using `import`
 
-To use this feature, set `"type": "module"` in the `package.json` or use the `.mjs` extension.
-
 ```javascript
 import kinoid from 'kinoid';
 const { newId, decodeId } = kinoid();
@@ -91,11 +89,18 @@ console.log(decodeId(id));
 //   singularity: 1144,
 //   pid: 5438
 // }
+
+const invalidId = 'c1vz87moyfzjyoHB4';
+console.log(decodeId(invalidId));
+// {
+//   id: 'c1vz87moyfzjyoHB4',
+//   error: 'the string c1vz87moyfzjyoHB4 is not a valid ID'
+// }
 ```
 
 ### using the browser
 
-<a href="https://codesandbox.io/p/sandbox/7f6sdn" target="_blank">![Open in SandBox](https://img.shields.io/badge/open%20in%20CodeSandbox-darkgreen?style=for-the-badge&logo=codesandbox&logoColor=black&labelColor=%23e3ff73)</a>
+<a href="https://codesandbox.io/p/sandbox/pdj5qy" target="_blank">![Open in SandBox](https://img.shields.io/badge/open%20in%20CodeSandbox-darkgreen?style=for-the-badge&logo=codesandbox&logoColor=black&labelColor=%23e3ff73)</a>
 
 ```html
 <!doctype html>

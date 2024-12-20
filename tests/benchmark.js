@@ -39,7 +39,7 @@ console.log(`
 **   singularity  : ${idStructure.singularity}
 **   process id   : ${idStructure.pid}
 **
-** generate ${new Intl.NumberFormat().format(repetitions)} IDs
+** generate ${formatted(repetitions)} IDs
 **   time elapsed : ${formatted(elapsedTimeMs)} milliseconds
 **   time for op  : ${formatted(timeForOneOpNs)} nanoseconds
 **   ops/s        : ${formatted(operationsPerSec)}

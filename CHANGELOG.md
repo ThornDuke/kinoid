@@ -8,7 +8,7 @@
 https://gist.github.com/ThornDuke/64da76cd4a56b16492d5101691f6108f
 -->
 
-## [Unreleased]
+## [3.0.4] - 2024-12-20
 
 ### Changed
 
@@ -19,6 +19,8 @@ https://gist.github.com/ThornDuke/64da76cd4a56b16492d5101691f6108f
 - README.md: simplified the HTML example
 - README.md: updated with the new `decodeId()` return object
 - README.md: badges correctly link to external services
+- README.md: a deeper example of `decodeId()`
+- README.md: updated the sandbox
 - package.json: description optimized for some services
 
 ### Added
