@@ -108,7 +108,7 @@ function kinoid() {
   /**
    * Takes a string representing an _ID_ (a base36 number 17 characters
    * long) as input and returns a BigInt representing the same number in
-   * base 10. It raises an error if the input string is not a valid ID.
+   * base 10.
    *
    * @param {string} bigintVal
    * @returns {BigInt}

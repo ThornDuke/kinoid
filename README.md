@@ -1,11 +1,11 @@
 # kinoid
 
-<a href="https://www.npmjs.com/package/kinoid" target="_blank">![NPM Version](https://img.shields.io/npm/v/kinoid?style=plastic&logo=npm&label=version&labelColor=black)</a>
-<a href="https://www.npmjs.com/package/kinoid" target="_blank">![NPM Downloads](https://img.shields.io/npm/d18m/kinoid?style=plastic&logo=npm&labelColor=black)</a>
-<a href="https://www.jsdelivr.com/package/npm/kinoid" target="_blank">![jsDelivr hits (npm)](https://img.shields.io/jsdelivr/npm/hy/kinoid?style=plastic&logo=jsdelivr&logoColor=white&color=orange&labelColor=black)</a>
-<a href="https://unpkg.com/browse/kinoid@3/" target="_blank">![Static Badge](https://img.shields.io/badge/powered-111000?style=plastic&logo=unpkg&label=unpkg&labelColor=black&color=FD0)</a>
-<a href="https://opensource.org/license/mit" target="_blank">![NPM License](https://custom-icon-badges.demolab.com/npm/l/kinoid?style=plastic&logo=law&labelColor=black)</a>
-<a href="https://bundlephobia.com/package/kinoid" target="_blank">![npm bundle size](https://img.shields.io/bundlephobia/min/kinoid?style=plastic&logo=webpack&logoColor=white&labelColor=black)</a>
+[![NPM Version](https://img.shields.io/npm/v/kinoid?style=plastic&logo=npm&label=version&labelColor=black)](https://www.npmjs.com/package/kinoid)
+[![NPM Downloads](https://img.shields.io/npm/d18m/kinoid?style=plastic&logo=npm&labelColor=black)](https://www.npmjs.com/package/kinoid)
+[![jsDelivr hits (npm)](https://img.shields.io/jsdelivr/npm/hy/kinoid?style=plastic&logo=jsdelivr&logoColor=white&color=orange&labelColor=black)](https://www.jsdelivr.com/package/npm/kinoid)
+[![Static Badge](https://img.shields.io/badge/powered-111000?style=plastic&logo=unpkg&label=unpkg&labelColor=black&color=FD0)](https://unpkg.com/browse/kinoid@3/)
+[![NPM License](https://custom-icon-badges.demolab.com/npm/l/kinoid?style=plastic&logo=law&labelColor=black)](https://opensource.org/license/mit)
+[![npm bundle size](https://img.shields.io/bundlephobia/min/kinoid?style=plastic&logo=webpack&logoColor=white&labelColor=black)](https://bundlephobia.com/package/kinoid)
 
 A JavaScript library for generating unique IDs.
 
