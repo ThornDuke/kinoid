@@ -7,7 +7,7 @@
 [![NPM License](https://custom-icon-badges.demolab.com/npm/l/kinoid?style=plastic&logo=law&labelColor=black)](https://opensource.org/license/mit)
 [![npm bundle size](https://img.shields.io/bundlephobia/min/kinoid?style=plastic&logo=webpack&logoColor=white&labelColor=black)](https://bundlephobia.com/package/kinoid)
 
-A JavaScript library for generating unique IDs.
+An ultra-light, url-friendly unique IDs generator. For `node` and browsers.
 
 ## Overview
 
