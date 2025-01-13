@@ -8,6 +8,15 @@
 https://gist.github.com/ThornDuke/64da76cd4a56b16492d5101691f6108f
 -->
 
+## [3.0.5] - 2025-01-13
+
+### Changed
+
+- README.md: deleted some unuseful `target="_blank"` in anchor tags
+- README.md: changed the first paragraph, now equal to the `package.json` description
+- README.md: one more badge
+- index.js {int36ToBigInt}: fixed the documentation
+
 ## [3.0.4] - 2024-12-20
 
 ### Changed
