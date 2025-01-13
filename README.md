@@ -4,7 +4,7 @@
 [![NPM Downloads](https://img.shields.io/npm/d18m/kinoid?style=plastic&logo=npm&labelColor=black)](https://www.npmjs.com/package/kinoid)
 [![jsDelivr hits (npm)](https://img.shields.io/jsdelivr/npm/hy/kinoid?style=plastic&logo=jsdelivr&logoColor=white&color=orange&labelColor=black)](https://www.jsdelivr.com/package/npm/kinoid)
 [![Unpkg Powered](https://img.shields.io/badge/powered-111000?style=plastic&logo=unpkg&label=unpkg&labelColor=black&color=FD0)](https://unpkg.com/browse/kinoid@3/)
-[![Codesandbox Powered](https://img.shields.io/badge/powered-111000?style=plastic&logo=codesandbox&label=codesandbox&labelColor=black&color=90EE90)](https://codesandbox.io/p/sandbox/pdj5qy)
+[![Codesandbox Powered](https://img.shields.io/badge/enabled-111000?style=plastic&logo=codesandbox&label=codesandbox&labelColor=black&color=90EE90)](https://codesandbox.io/p/sandbox/pdj5qy)
 [![NPM License](https://custom-icon-badges.demolab.com/npm/l/kinoid?style=plastic&logo=law&labelColor=black)](https://opensource.org/license/mit)
 [![npm bundle size](https://img.shields.io/bundlephobia/min/kinoid?style=plastic&logo=webpack&logoColor=white&labelColor=black)](https://bundlephobia.com/package/kinoid)
 
