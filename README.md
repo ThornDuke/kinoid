@@ -32,12 +32,18 @@ returns an object containing, among other things, the date on which that ID was 
 ### Warning
 
 <span style="color: white; background-color: red; padding: .125em .5em .125em .5em">**IDs are not
-passwords**</span> Kinoid ensures that each generated ID is _unique_, but not _necessarily
+passwords!**</span> Kinoid ensures that each generated ID is _unique_, but not _necessarily
 unpredictable_.
 
 This depends on a logical limit that affects _all_ libraries: an algorithm that produces
 unpredictable strings cannot guarantee their uniqueness and, vice versa, an algorithm that produces
 unique strings cannot guarantee their unpredictability.
+
+Libraries that produce IDs which are both _unique_ and _unpredictable_ typically achieve this by
+combining two separate algorithms: one that generates a _unique_ string (e.g., based on timestamps
+or counters) and another that generates an _unpredictable_ string (e.g., using cryptographic
+randomness). These two strings are then concatenated to form the final ID, ensuring both properties
+are satisfied.
 
 If you need a library for creating cryptographically secure passwords, consider
 [crypto-pwd-generator](https://www.npmjs.com/package/crypto-pwd-generator)
@@ -57,7 +63,7 @@ yarn add kinoid
 ### using `require`
 
 ```javascript
-const { newId } = require('kinoid')();
+const { newId, decodeId } = require('kinoid')();
 
 const newBook = {
   title: 'The absence of non-existent unthoughts',
@@ -67,6 +73,9 @@ const newBook = {
 };
 
 db.add(newBook);
+
+console.log(`Generated id '${id}' on ${decodeId(id).date.toDateString()}`);
+// Generated id 'cohb4z87mvoyf1zjy' on Tue Nov 19 2024
 ```
 
 ### using `import`
