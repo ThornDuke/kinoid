@@ -8,6 +8,12 @@
 https://gist.github.com/ThornDuke/64da76cd4a56b16492d5101691f6108f
 -->
 
+## [3.0.7] - 2025-04-13
+
+### Changed
+
+- index.js: rewritten the jsdoc documentation
+
 ## [3.0.6] - 2025-04-13
 
 ### Added
