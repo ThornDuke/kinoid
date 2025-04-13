@@ -41,9 +41,11 @@
     "format": "prettier . --write",
     "stylecheck": "prettier . --check",
     "benchmark": "node tests/benchmark.js",
-    "browse": "open tests/index.html"
+    "browse": "open tests/index.html",
+    "test": "jest"
   },
   "devDependencies": {
-    "prettier": "^3.4.1"
+    "prettier": "^3.4.1",
+    "jest": "^29.7.0"
   }
 }

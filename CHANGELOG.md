@@ -8,6 +8,19 @@
 https://gist.github.com/ThornDuke/64da76cd4a56b16492d5101691f6108f
 -->
 
+## [Unreleased]
+
+### Added
+
+- kinoid.test.js: Jest tests
+- index.js {logError()}: custom logger
+
+### Changed
+
+- index.js {isNode}: now it's a boolean constant, not a function
+- index.js {decodeIOd()}: better documentation
+- index.js {decodeIOd()}: better code structure
+
 ## [3.0.5] - 2025-01-13
 
 ### Changed

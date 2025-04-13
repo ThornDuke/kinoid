@@ -73,8 +73,17 @@ function kinoid() {
       }
     }
   } catch (error) {
-    console.log(`${error.name}: ${error.message} [${error.cause}]`);
+    logError(error);
     throw error;
+  }
+
+  /**
+   * Function that logs the error message to the console
+   *
+   * @param {Error} error
+   */
+  function logError(error) {
+    console.error(`[Kinoid Error] ${error.name}: ${error.message} [${error.cause}]`);
   }
 
   /**
@@ -145,7 +154,7 @@ function kinoid() {
         throw new RangeError(errMsg, { cause: 'singularity is out of range' });
       }
     } catch (error) {
-      console.log(`${error.name}: ${error.message} [${error.cause}]`);
+      logError(error);
       throw error;
     }
   }
@@ -186,8 +195,20 @@ function kinoid() {
      * constituent elements, otherwise it returns an object containing
      * an error message. For the definition of '_valid ID_' see
      * {@link idRe}
+     *
+     * @example
+     * const invalidId = 'invalid123';
+     * const result = decodeId(invalidId);
+     * // result => { id: 'invalid123', error: 'the string invalid123 is not a valid ID' }
      */
     decodeId: function (id) {
+      if (!hasIdStructure(id)) {
+        return {
+          id,
+          error: `Invalid ID format: ${id}`,
+        };
+      }
+
       const decIdStr = int36ToBigInt(id).toString().substring(slipPreventer.length);
       const dateStart = 0;
       const dateEnd = dateStart + timeStampLength;
@@ -198,8 +219,7 @@ function kinoid() {
       const idDate = new Date(Number(decIdStr.slice(dateStart, dateEnd)) + startTime);
       const idSingularity = Number(decIdStr.slice(singularityStart, singularityEnd));
       const idPid = Number(decIdStr.slice(pidStart));
-      const isValidId =
-        hasIdStructure(id) && idDate.valueOf() >= startTime && idSingularity >= 0 && idPid >= 0;
+      const isValidId = idDate.valueOf() >= startTime && idSingularity >= 0 && idPid >= 0;
 
       if (!isValidId) {
         return {
@@ -220,17 +240,9 @@ function kinoid() {
   return publicAPI;
 }
 
-// Using 'new Function()' _this_ is always bound
-// to the global scope and the function returns
-// the correct result
-const isNode = new Function(`
-try {
-  return this === global;
-} catch (e) {
-  return false;
-}
-`);
+const isNode =
+  typeof process !== 'undefined' && process.versions != null && process.versions.node != null;
 
-if (isNode()) {
+if (isNode) {
   module.exports = module.exports.default = kinoid;
 }
