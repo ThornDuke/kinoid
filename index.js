@@ -1,23 +1,36 @@
 /**
  * KINOID
  *
- * @overview Unique IDs generator
+ * @overview
+ * Kinoid is a lightweight library for generating unique, URL-friendly IDs.
+ * It is designed to work in both Node.js and browser environments.
  *
  * @description
- * Kinoid is a library that creates unique identifiers (IDs).
- * Each ID is unique because it's different from all the others
- * generated before or at the same time on the same machine.
+ * Kinoid generates unique identifiers (IDs) that are:
+ * - **Unique**: Each ID is guaranteed to be different from all others
+ *   generated before or at the same time on the same machine.
+ * - **Sortable by time**: IDs are based on the timestamp of their creation,
+ *   making them naturally sortable.
+ * - **Decodable**: The `decodeId()` function allows you to extract the
+ *   components used to generate an ID, such as the timestamp, process ID,
+ *   and singularity factor.
  *
- * The parameters used to build these IDs are the current date
- * and time, the ID of the process running the program, and a
- * sequential number (the 'singularity factor') that ensures
- * the ID is unique even on very fast machines.
+ * ### How IDs are generated
+ * Each ID is composed of:
+ * - A **timestamp**: The number of milliseconds since the UNIX epoch.
+ * - A **process ID**: Identifies the process in which the program runs.
+ * - A **singularity factor**: A sequential number that ensures uniqueness
+ *   even when multiple IDs are generated in the same millisecond.
  *
- * The library provides two main functions:
- * - `newId()`: generates a new ID as a string.
- * - `decodeId()`: takes an existing ID and returns an object
- *   containing the components used to create that ID: date and
- *   time, singularity factor, and process ID.
+ * ### Main Functions
+ * - `newId()`: Generates a new unique ID as a string.
+ * - `decodeId()`: Decodes an existing ID into its components, such as the
+ *   timestamp, singularity factor, and process ID.
+ *
+ * ### Warning
+ * Kinoid ensures that each generated ID is **unique**, but not necessarily
+ * **unpredictable**. If you need cryptographically secure IDs, consider
+ * using a library designed for that purpose.
  *
  * @author Thorn Duke
  * @version 3
@@ -28,26 +41,41 @@
 'use strict';
 
 /**
- * Library for the generation and decoding of unique identifiers
+ * Library for the generation and decoding of unique identifiers.
  *
  * @returns {{ newId: function, decodeId: function }}
  *
  * @example
+ * // Import the library
  * const { newId, decodeId } = kinoid();
+ *
+ * // Generate a new ID
  * const id = newId();
- * // id => 'cohb4z87mvoyf1zjy'
- * const idStruct = decodeId(id)
- * // idStruct => {
+ * console.log(id); // Example: 'cohb4z87mvoyf1zjy'
+ *
+ * // Decode the ID
+ * const decoded = decodeId(id);
+ * console.log(decoded);
+ * // Output:
+ * // {
  * //   id: 'cohb4z87mvoyf1zjy',
  * //   date: 2024-11-19T16:52:19.962Z,
  * //   singularity: 1144,
  * //   pid: 5438
  * // }
+ *
+ * // Handle invalid IDs
+ * const invalidId = 'invalid123';
+ * const result = decodeId(invalidId);
+ * console.log(result);
+ * // Output:
+ * // { id: 'invalid123', error: 'Invalid ID format: invalid123' }
  */
 function kinoid() {
   /**
-   * It's the format for an ID: a 17-character
-   * string made up of lowercase letters and numbers
+   * Regular expression defining the format of a valid ID.
+   * A valid ID is a 17-character string composed of lowercase letters and numbers.
+   *
    * @constant
    * @type {RegExp}
    */
@@ -56,12 +84,57 @@ function kinoid() {
   let currTimeStamp = 0;
   let prevTimeStamp = 0;
   let singularity = 0;
-  const startTime = 1640434800000;
+
+  /**
+   * The starting time for generating timestamps, set to a fixed epoch.
+   * This ensures that all generated IDs are based on a consistent reference point.
+   *
+   * @constant
+   * @type {number}
+   */
+  const startTime = 1640434800000; // January 1, 2022, 00:00:00 UTC
+
+  /**
+   * A prefix added to the ID to prevent accidental misinterpretation of IDs
+   * as numbers when it starts with zeroes.
+   *
+   * @constant
+   * @type {string}
+   */
   const slipPreventer = '1';
+
+  /**
+   * The length of the timestamp portion of the ID.
+   *
+   * @constant
+   * @type {number}
+   */
   const timeStampLength = 13;
+
+  /**
+   * The length of the singularity portion of the ID.
+   * This ensures that IDs generated within the same millisecond remain unique.
+   *
+   * @constant
+   * @type {number}
+   */
   const singularityLength = 6;
   let pid = 0;
+
+  /**
+   * The maximum length of the process ID portion of the ID.
+   *
+   * @constant
+   * @type {number}
+   */
   const pidLength = 7;
+
+  /**
+   * Error message displayed when a critical limit is reached, preventing further ID generation.
+   *
+   * @constant
+   * @type {string}
+   */
   const errMsg =
     'A critical technical limit has been reached. Kinoid is unable to generate unique IDs. Please ask the system administrator for a library update.';
 
@@ -78,49 +151,50 @@ function kinoid() {
   }
 
   /**
-   * Function that logs the error message to the console
+   * Logs error messages to the console in a standardized format.
    *
-   * @param {Error} error
+   * @param {Error} error - The error object to log.
    */
   function logError(error) {
     console.error(`[Kinoid Error] ${error.name}: ${error.message} [${error.cause}]`);
   }
 
   /**
-   * Convert the number `val` to a string and then pads it with zeroes
-   * (multiple times, if needed) until the resulting string reaches the
-   * given `length`. The padding is applied from the start of the
-   * string.
+   * Pads a number or string with leading zeroes to ensure it reaches a specified length.
    *
-   * @param {number|string} val the number that needs to be filled on the left
-   * @param {number} length the length of the resulting string once the
-   *   current `val` has been padded. If the value is less than or equal
-   *   to `val.length`, then `val` is returned as-is.
-   * @returns {string} a string of the specified `length` with zeroes
-   *   applied from the start.
+   * @param {number|string} val - The value to pad.
+   * @param {number} length - The desired length of the resulting string.
+   * @returns {string} A string of the specified length with leading zeroes.
+   *
+   * @example
+   * zeroPadded(42, 5); // "00042"
    */
   function zeroPadded(val, length) {
     return val.toString().padStart(length, 0);
   }
 
   /**
-   * Takes a string as input and checks if it has the structure of
-   * a valid ID
+   * Checks if a given string matches the structure of a valid ID.
    *
-   * @param {string} id
-   * @returns boolean
+   * @param {string} id - The ID to validate.
+   * @returns {boolean} `true` if the ID is valid, `false` otherwise.
+   *
+   * @example
+   * hasIdStructure('cohb4z87mvoyf1zjy'); // true
+   * hasIdStructure('invalid123'); // false
    */
   function hasIdStructure(id) {
     return idRe.test(id);
   }
 
   /**
-   * Takes a string representing an _ID_ (a base36 number 17 characters
-   * long) as input and returns a BigInt representing the same number in
-   * base 10.
+   * Converts a base36 string to a BigInt.
    *
-   * @param {string} bigintVal
-   * @returns {BigInt}
+   * @param {string} bigintVal - The base36 string to convert.
+   * @returns {BigInt} The equivalent BigInt value.
+   *
+   * @example
+   * int36ToBigInt('1z'); // 71n
    */
   function int36ToBigInt(bigintVal) {
     return bigintVal
@@ -130,11 +204,11 @@ function kinoid() {
   }
 
   /**
-   * Function that is invoked every time an ID is generated. Calculates
-   * the timestamp value by assigning it the number of milliseconds
-   * that have passed since the `startTime` epoch. The value of `singularity`
-   * is incremented if the current timestamp value is the same as the
-   * previous one, otherwise it is reset to zero.
+   * Updates the internal properties used for generating IDs.
+   * This function calculates the current timestamp and ensures the singularity factor
+   * is incremented or reset as needed.
+   *
+   * @throws {RangeError} If the timestamp or singularity exceeds their respective limits.
    */
   function updateProperties() {
     try {
@@ -161,12 +235,14 @@ function kinoid() {
 
   const publicAPI = {
     /**
-     * Generate a unique ID. The ID is unique because it is different
-     * from all the other ones generated previously, subsequently or at
-     * the same time on the same machine. An ID is made up of lowercase
-     * characters and numbers
+     * Generates a new unique ID.
+     * The ID is composed of a timestamp, a singularity factor, and a process ID.
      *
-     * @returns {string} the ID
+     * @returns {string} The generated unique ID.
+     *
+     * @example
+     * const id = newId();
+     * console.log(id); // Example: 'cohb4z87mvoyf1zjy'
      */
     newId: function () {
       updateProperties();
@@ -180,26 +256,28 @@ function kinoid() {
     },
 
     /**
-     * Extracts from an ID the elements with which it was generated.
+     * Decodes a given ID into its components.
      *
-     * @param {string} id a valid ID
+     * @param {string} id - The ID to decode.
      * @returns {{
-     *  id: string,
-     *  date: Date,
-     *  singularity: number,
-     *  pid: number
+     *   id: string,
+     *   date: Date,
+     *   singularity: number,
+     *   pid: number
      * } | {
-     *  id: string,
-     *  error: string
-     * }} if the ID is a valid ID it returns an object containing its
-     * constituent elements, otherwise it returns an object containing
-     * an error message. For the definition of '_valid ID_' see
-     * {@link idRe}
+     *   id: string,
+     *   error: string
+     * }} An object containing the decoded components or an error message.
      *
      * @example
-     * const invalidId = 'invalid123';
-     * const result = decodeId(invalidId);
-     * // result => { id: 'invalid123', error: 'the string invalid123 is not a valid ID' }
+     * const decoded = decodeId('cohb4z87mvoyf1zjy');
+     * console.log(decoded);
+     * // {
+     * //   id: 'cohb4z87mvoyf1zjy',
+     * //   date: 2024-11-19T16:52:19.962Z,
+     * //   singularity: 1144,
+     * //   pid: 5438
+     * // }
      */
     decodeId: function (id) {
       if (!hasIdStructure(id)) {
