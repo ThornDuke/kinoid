@@ -1,23 +1,31 @@
 {
   "name": "kinoid",
   "version": "3.0.7",
-  "description": "An ultra-light, url-friendly unique IDs generator. For node and browsers.",
+  "description": "An ultra-lightweight JavaScript library for generating unique, URL-friendly, and time-sortable IDs. Kinoid is designed for Node.js and browser environments, offering decodable, timestamp-based IDs in a compact base36 format.",
   "author": "Thorn Duke",
   "license": "MIT",
   "keywords": [
+    "unique-id",
+    "id-generator",
+    "url-friendly",
+    "timestamp-id",
+    "sortable-id",
+    "lightweight",
+    "time-based-id",
+    "base36",
+    "nodejs-library",
+    "browser-library",
+    "javascript-library",
+    "npm-package",
+    "frontend",
     "backend",
     "cli",
-    "unique id",
-    "uniqid",
-    "unique identifier",
-    "hexatridecimal",
-    "uuid",
-    "id",
     "uid",
-    "guid",
-    "node",
-    "generator",
-    "id generator"
+    "uniqid",
+    "identifier",
+    "time-sortable",
+    "compact-id",
+    "cross-platform"
   ],
   "homepage": "https://github.com/ThornDuke/kinoid",
   "repository": {
@@ -28,7 +36,8 @@
     "url": "https://github.com/ThornDuke/kinoid/issues"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=14",
+    "npm": ">=6"
   },
   "files": [
     "index.js",
@@ -36,13 +45,22 @@
     "README.md"
   ],
   "preferGlobal": true,
+  "sideEffects": false,
   "main": "index.js",
+  "exports": {
+    ".": {
+      "require": "./index.js",
+      "import": "./index.js"
+    }
+  },
+  "browser": "./index.js",
   "scripts": {
     "format": "prettier . --write",
     "stylecheck": "prettier . --check",
     "benchmark": "node tests/benchmark.js",
     "browse": "open tests/index.html",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "echo 'Thank you for installing Kinoid!'"
   },
   "devDependencies": {
     "prettier": "^3.4.1",
