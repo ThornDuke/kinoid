@@ -84,6 +84,7 @@ function kinoid() {
   let currTimeStamp = 0;
   let prevTimeStamp = 0;
   let singularity = 0;
+  let pid = 0;
 
   /**
    * The starting time for generating timestamps, set to a fixed epoch.
@@ -92,11 +93,11 @@ function kinoid() {
    * @constant
    * @type {number}
    */
-  const startTime = 1640434800000; // January 1, 2022, 00:00:00 UTC
+  const startTime = 1640434800000; // 2021-12-25T12:20:00.000Z
 
   /**
-   * A prefix added to the ID to prevent accidental misinterpretation of IDs
-   * as numbers when it starts with zeroes.
+   * A prefix added to the ID to prevent accidental misinterpretation of the
+   * structure of the IDs when they starts with a zero.
    *
    * @constant
    * @type {string}
@@ -119,7 +120,6 @@ function kinoid() {
    * @type {number}
    */
   const singularityLength = 6;
-  let pid = 0;
 
   /**
    * The maximum length of the process ID portion of the ID.
