@@ -17,6 +17,11 @@ https://gist.github.com/ThornDuke/64da76cd4a56b16492d5101691f6108f
   minimum npm version, and added new `scripts` for a message to the user.
 - index.js: small aesthetic changes
 
+### Added
+
+- index.js {decodeId()}: A clearer and more descriptive error message is issued when an element of
+  the ID is out of the range
+
 ## [3.0.7] - 2025-04-13
 
 ### Changed

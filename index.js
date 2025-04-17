@@ -297,12 +297,22 @@ function kinoid() {
       const idDate = new Date(Number(decIdStr.slice(dateStart, dateEnd)) + startTime);
       const idSingularity = Number(decIdStr.slice(singularityStart, singularityEnd));
       const idPid = Number(decIdStr.slice(pidStart));
+
+      const errMsg =
+        idDate.valueOf() < startTime
+          ? 'date is out of range'
+          : idSingularity < 0
+            ? 'singularity is out of range'
+            : idPid < 0
+              ? 'PID is out of range'
+              : 'undefined error';
+
       const isValidId = idDate.valueOf() >= startTime && idSingularity >= 0 && idPid >= 0;
 
       if (!isValidId) {
         return {
           id,
-          error: `the string ${id} is not a valid ID`,
+          error: `the string ${id} is not a valid ID: ${errMsg}`,
         };
       }
 
