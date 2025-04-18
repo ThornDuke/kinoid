@@ -60,7 +60,7 @@ yarn add kinoid
 
 ## How to use
 
-### using `require`
+### CommonJS
 
 ```javascript
 const { newId, decodeId } = require('kinoid')();
@@ -78,7 +78,7 @@ console.log(`Generated id '${id}' on ${decodeId(id).date.toDateString()}`);
 // Generated id 'cohb4z87mvoyf1zjy' on Tue Nov 19 2024
 ```
 
-### using `import`
+### Modules
 
 ```javascript
 import kinoid from 'kinoid';
@@ -108,7 +108,7 @@ console.log(decodeId(invalidId));
 // }
 ```
 
-### using the browser
+### Using the browser
 
 <a href="https://codesandbox.io/p/sandbox/pdj5qy" target="_blank">![Open in SandBox](https://img.shields.io/badge/open%20in%20CodeSandbox-darkgreen?style=for-the-badge&logo=codesandbox&logoColor=black&labelColor=%23e3ff73)</a>
 

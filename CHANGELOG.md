@@ -16,6 +16,7 @@ https://gist.github.com/ThornDuke/64da76cd4a56b16492d5101691f6108f
   `sideEffects` for tree-shaking, added `exports` for module compatibility, updated `engines` with
   minimum npm version, and added new `scripts` for a message to the user.
 - index.js: small aesthetic changes
+- README.md: distinction between commonJs and modules
 
 ### Added
 
