@@ -8,7 +8,7 @@
 https://gist.github.com/ThornDuke/64da76cd4a56b16492d5101691f6108f
 -->
 
-## [Unreleased]
+## [3.0.8] - 2025-04-22
 
 ### Changed
 
